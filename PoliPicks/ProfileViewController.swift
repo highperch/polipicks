@@ -10,6 +10,22 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    //Outlets for the profile and settings views
+    @IBOutlet weak var profileView: UIView!
+    @IBOutlet weak var settingsView: UIView!
+    
+    @IBAction func didTapSettings(sender: UIBarButtonItem) {
+        //Present settings view
+        settingsView.hidden = false
+        profileView.hidden = true
+    }
+    
+    @IBAction func didTapDone(sender: UIBarButtonItem) {
+        //Present profile view
+        profileView.hidden = false
+        settingsView.hidden = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
