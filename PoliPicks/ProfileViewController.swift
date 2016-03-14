@@ -13,13 +13,21 @@ class ProfileViewController: UIViewController {
     //Outlets for the profile and settings views
     @IBOutlet weak var profileView: UIView!
     @IBOutlet weak var settingsView: UIView!
+    //Outlets for labels
+    @IBOutlet weak var pointsLabel: UILabel!
+    @IBOutlet weak var rankLabel: UILabel!
+    @IBOutlet weak var bestDayLabel: UILabel!
+    @IBOutlet weak var streakLabel: UILabel!
     
+    
+    //Settings button
     @IBAction func didTapSettings(sender: UIBarButtonItem) {
         //Present settings view
         settingsView.hidden = false
         profileView.hidden = true
     }
     
+    //Done button
     @IBAction func didTapDone(sender: UIBarButtonItem) {
         //Present profile view
         profileView.hidden = false
