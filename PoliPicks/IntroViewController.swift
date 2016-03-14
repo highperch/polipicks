@@ -2,23 +2,27 @@
 //  LoginViewController.swift
 //  PoliPicks
 //
-//  Created by Justin Peng on 3/14/16.
+//  Created by Justin Peng on 3/9/16.
 //  Copyright © 2016 Justin Peng. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class IntroViewController: UIViewController {
 
-    @IBOutlet weak var sendConfirmationButton: UIButton!
+    @IBOutlet weak var titleText: UILabel!
+    @IBOutlet weak var taglineText: UILabel!
+    @IBOutlet weak var portrait1: UIImageView!
+    @IBOutlet weak var portrait2: UIImageView!
+    @IBOutlet weak var portrait3: UIImageView!
+    @IBOutlet weak var portrait4: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red: 0.12, green: 0.71, blue: 0.93, alpha: 1)
+        titleText.textColor = UIColor(white: 1, alpha: 1)
+        taglineText.textColor = UIColor(white: 1, alpha: 1)
         // Do any additional setup after loading the view.
-        sendConfirmationButton.layer.cornerRadius = 5
-        sendConfirmationButton.layer.borderWidth = 1
-        sendConfirmationButton.layer.borderColor = UIColor.whiteColor().CGColor
-
     }
 
     override func didReceiveMemoryWarning() {

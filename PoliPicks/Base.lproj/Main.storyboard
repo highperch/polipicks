@@ -5,57 +5,101 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Login View Controller-->
+        <!--Intro View Controller-->
         <scene sceneID="5jZ-IF-9P6">
             <objects>
-                <viewController id="ujU-Js-qiU" customClass="LoginViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ujU-Js-qiU" customClass="IntroViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WND-vz-0MN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREDICT THE POLLS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FGW-z8-rVL" userLabel="Tagline">
-                                <rect key="frame" x="79" y="295" width="162" height="22"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="g8B-Gj-M5v">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="john-kasich" id="jS0-Ss-SzO" userLabel="Portrait-1">
-                                <rect key="frame" x="128" y="51" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="donald-trump" id="5d6-iR-Via" userLabel="Portrait-2">
-                                <rect key="frame" x="128" y="151" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="hillary-clinton" id="Z6v-3Q-VFz" userLabel="Portrait-3">
-                                <rect key="frame" x="128" y="353" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="bernie-sanders" id="Xa0-Ez-QaC" userLabel="Portrait-4">
-                                <rect key="frame" x="128" y="453" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="polipicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6vD-zy-WqG" userLabel="Title">
-                                <rect key="frame" x="90" y="251" width="141" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREDICT THE POLLS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iEj-tt-Gwp" userLabel="Tagline">
+                                        <rect key="frame" x="80" y="295" width="162" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="john-kasich" id="nG9-Jo-Pep" userLabel="Portrait-1">
+                                        <rect key="frame" x="129" y="51" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="donald-trump" id="RPV-MT-SaV" userLabel="Portrait-2">
+                                        <rect key="frame" x="129" y="151" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="hillary-clinton" id="1Ls-Ux-oyW" userLabel="Portrait-3">
+                                        <rect key="frame" x="129" y="353" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="bernie-sanders" id="uS0-rh-gXW" userLabel="Portrait-4">
+                                        <rect key="frame" x="129" y="453" width="64" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="polipicks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="I09-4K-whU" userLabel="Title">
+                                        <rect key="frame" x="91" y="251" width="141" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <outlet property="portrait1" destination="jS0-Ss-SzO" id="hZN-AQ-sST"/>
-                        <outlet property="portrait2" destination="5d6-iR-Via" id="DtW-ub-Xee"/>
-                        <outlet property="portrait3" destination="Z6v-3Q-VFz" id="7m7-2o-VUy"/>
-                        <outlet property="portrait4" destination="Xa0-Ez-QaC" id="w0D-bP-zU3"/>
-                        <outlet property="taglineText" destination="FGW-z8-rVL" id="xUg-IL-Tul"/>
-                        <outlet property="titleText" destination="6vD-zy-WqG" id="Jcz-6b-Ylb"/>
+                        <outlet property="portrait1" destination="nG9-Jo-Pep" id="ZsU-hO-O3A"/>
+                        <outlet property="portrait2" destination="RPV-MT-SaV" id="5be-Hr-9Kf"/>
+                        <outlet property="portrait3" destination="1Ls-Ux-oyW" id="MeB-sG-qwc"/>
+                        <outlet property="portrait4" destination="uS0-rh-gXW" id="Vrs-VC-bQw"/>
+                        <outlet property="taglineText" destination="iEj-tt-Gwp" id="GBE-y4-DIS"/>
+                        <outlet property="titleText" destination="I09-4K-whU" id="9Ct-wy-ufS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o3u-Oc-P8Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-618" y="338"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="H5O-br-ix7">
+            <objects>
+                <viewController id="Svz-bs-lNh" customClass="LoginViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZZP-Eg-uCL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0HN-rY-feo">
+                                <rect key="frame" x="35" y="149" width="250" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Send Confirmation Code">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Phone #" minimumFontSize="17" id="iVt-Xp-2XM">
+                                <rect key="frame" x="35" y="86" width="250" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="sendConfirmationButton" destination="0HN-rY-feo" id="fHL-G5-O10"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="00u-Oc-k0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-227" y="338"/>
         </scene>
@@ -134,7 +178,7 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" id="wK0-jC-kkb">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
                                             <navigationItem title="Confirm Picks" id="qCN-uy-bJZ"/>
                                         </items>
@@ -148,7 +192,7 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" id="UQo-SX-ugF">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
                                             <navigationItem title="Make a Pick" id="SiO-CH-28a"/>
                                         </items>
@@ -188,7 +232,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" id="882-or-r86">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Leaderboard" id="UCb-Ok-X7h"/>
                                 </items>
@@ -257,7 +301,7 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" id="fwz-b3-Jc8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
                                             <navigationItem title="Settings" id="5Iy-hM-UkQ">
                                                 <barButtonItem key="rightBarButtonItem" title="Done" id="4hC-h7-XDt">
@@ -282,7 +326,7 @@
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" id="xu0-fx-mH4">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
                                             <navigationItem title="Jason Putorti" id="hg1-VP-bre">
                                                 <barButtonItem key="rightBarButtonItem" title="Settings" id="s6j-LS-aWJ">
