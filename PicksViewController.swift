@@ -1,5 +1,5 @@
 //
-//  ConfirmPicksViewController.swift
+//  MakeAPickViewController.swift
 //  PoliPicks
 //
 //  Created by Justin Peng on 3/13/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmPicksViewController: UIViewController {
+class PicksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
