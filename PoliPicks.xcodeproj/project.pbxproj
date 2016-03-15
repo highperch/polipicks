@@ -12,7 +12,6 @@
 		1E5BB9611C95EDD700AED697 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9601C95EDD700AED697 /* ProfileViewController.swift */; };
 		1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9621C971B2500AED697 /* LeaderboardTableViewCell.swift */; };
 		1E5BB9671C97294300AED697 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9661C97294300AED697 /* LoginViewController.swift */; };
-		1E5BB9691C97970200AED697 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9681C97970200AED697 /* SettingsViewController.swift */; };
 		1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */; };
 		1E5BB96D1C989BBA00AED697 /* Tour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5BB96C1C989BBA00AED697 /* Tour.storyboard */; };
 		1E5BB96F1C98A10B00AED697 /* TourUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB96E1C98A10B00AED697 /* TourUpViewController.swift */; };
@@ -29,6 +28,7 @@
 		1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E831C90FEDA005E4678 /* IntroViewController.swift */; };
 		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
 		24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,6 @@
 		1E5BB9601C95EDD700AED697 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1E5BB9621C971B2500AED697 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		1E5BB9661C97294300AED697 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		1E5BB9681C97970200AED697 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDetailsViewController.swift; sourceTree = "<group>"; };
 		1E5BB96C1C989BBA00AED697 /* Tour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tour.storyboard; sourceTree = "<group>"; };
 		1E5BB96E1C98A10B00AED697 /* TourUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourUpViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 		1E820E831C90FEDA005E4678 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		24DC41E91C98B4D200E64E21 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro2ViewController.swift; sourceTree = "<group>"; };
+		24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,8 +173,8 @@
 		1E820E801C8E92D6005E4678 /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */,
 				1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */,
-				1E5BB9681C97970200AED697 /* SettingsViewController.swift */,
 				1E820E831C90FEDA005E4678 /* IntroViewController.swift */,
 				24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */,
 				1E5BB9661C97294300AED697 /* LoginViewController.swift */,
@@ -326,9 +326,9 @@
 				24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */,
 				1E5BB95F1C95EDB300AED697 /* LeaderboardViewController.swift in Sources */,
 				1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */,
-				1E5BB9691C97970200AED697 /* SettingsViewController.swift in Sources */,
 				1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */,
 				1E5BB9741C98A12B00AED697 /* TourFinalViewController.swift in Sources */,
+				24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */,
 				1E5BB9721C98A12100AED697 /* TourDownViewController.swift in Sources */,
 				1E5BB95B1C95ED7500AED697 /* PicksViewController.swift in Sources */,
 				1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */,

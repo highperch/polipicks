@@ -581,7 +581,7 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Input" textAlignment="natural" minimumFontSize="17" id="TbI-Lz-2LM">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Input" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" id="TbI-Lz-2LM">
                                         <rect key="frame" x="122" y="10" width="190" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -619,9 +619,17 @@
                             <outletCollection property="gestureRecognizers" destination="pPt-Ev-ALQ" appends="YES" id="Dmm-Dt-TAE"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="screennameTextField" destination="TbI-Lz-2LM" id="GG1-7o-gwb"/>
+                        <outlet property="stateTextField" destination="TUc-im-5CK" id="F4Y-d1-3df"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KOe-jI-Z2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pPt-Ev-ALQ"/>
+                <tapGestureRecognizer id="pPt-Ev-ALQ">
+                    <connections>
+                        <action selector="tapDismiss:" destination="TmZ-5s-BTM" id="Zbq-6j-Y4S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1089" y="1074"/>
         </scene>
