@@ -1,34 +1,21 @@
 //
-//  ProfileViewController.swift
+//  SettingsViewController.swift
 //  PoliPicks
 //
-//  Created by Justin Peng on 3/13/16.
+//  Created by Justin Peng on 3/14/16.
 //  Copyright © 2016 Justin Peng. All rights reserved.
 //
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
-    //Outlets for the profile and settings views
-    @IBOutlet weak var profileView: UIView!
-    @IBOutlet weak var settingsView: UIView!
-    //Outlets for labels
-    @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var rankLabel: UILabel!
-    @IBOutlet weak var bestDayLabel: UILabel!
-    @IBOutlet weak var streakLabel: UILabel!
-    
-    
-    //Settings button
-    @IBAction func didTapSettings(sender: UIBarButtonItem) {
-        //Present settings view
-        self.performSegueWithIdentifier("settingsSegue", sender: self)
+    @IBAction func didTapDone(sender: UIBarButtonItem) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 

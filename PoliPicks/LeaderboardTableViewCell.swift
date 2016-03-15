@@ -10,6 +10,11 @@ import UIKit
 
 class LeaderboardTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var leaderboardTableViewProfilePicture: UIImageView!
+    @IBOutlet weak var leaderboardTableViewName: UILabel!
+    @IBOutlet weak var leaderboardTableViewLocation: UILabel!
+    @IBOutlet weak var leaderboardTableViewScore: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

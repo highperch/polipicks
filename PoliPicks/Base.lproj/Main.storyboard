@@ -172,6 +172,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" id="Pbe-ox-hmT" userLabel="Picks Closed View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picks are closed for today!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gM3-sO-Ytx">
+                                        <rect key="frame" x="59" y="134" width="202" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New game starts in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P5t-8b-y6E">
+                                        <rect key="frame" x="60" y="256" width="201" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <color key="textColor" red="0.81960784313725488" green="0.011764705882352941" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="xWe-Qg-Uoy" userLabel="Confirm Picks View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -220,7 +241,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGM-mu-dlc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-227" y="1003"/>
+            <point key="canvasLocation" x="-618" y="1003"/>
         </scene>
         <!--Leaderboard View Controller-->
         <scene sceneID="qoe-Yt-eyh">
@@ -242,7 +263,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Azb-n9-GAH" customClass="LeaderboardTableViewCell" customModule="PoliPicks" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="Azb-n9-GAH" customClass="LeaderboardTableViewCell" customModule="PoliPicks" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Azb-n9-GAH" id="I4r-tM-BON">
@@ -276,16 +297,25 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leaderboardTableViewLocation" destination="AcI-1A-L85" id="6uC-Pk-1jC"/>
+                                            <outlet property="leaderboardTableViewName" destination="F7b-S3-eg1" id="gWX-Sb-w9S"/>
+                                            <outlet property="leaderboardTableViewProfilePicture" destination="ldg-e0-XRq" id="5vh-Xt-Cgb"/>
+                                            <outlet property="leaderboardTableViewScore" destination="qCX-sK-3o7" id="pb4-d5-h85"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="leaderboardTableView" destination="IeU-PU-dAd" id="PEt-ZQ-nWb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bu3-Tu-JOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="1003"/>
+            <point key="canvasLocation" x="-229" y="1003"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="Boh-cO-i6W">
@@ -295,31 +325,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="ogT-a1-Sum" userLabel="Settings View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" id="fwz-b3-Jc8">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <navigationItem title="Settings" id="5Iy-hM-UkQ">
-                                                <barButtonItem key="rightBarButtonItem" title="Done" id="4hC-h7-XDt">
-                                                    <connections>
-                                                        <action selector="didTapDone:" destination="p6j-xZ-jSn" id="MSO-3W-SoV"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
-                                        </items>
-                                    </navigationBar>
-                                    <view contentMode="scaleToFill" id="efQ-x2-Oa0" userLabel="Settings Content View">
-                                        <rect key="frame" x="0.0" y="44" width="320" height="524"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" id="FXk-br-YVM" userLabel="Profile View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -418,13 +423,42 @@
                         <outlet property="pointsLabel" destination="NlF-Cb-UFW" id="RKU-JQ-UL3"/>
                         <outlet property="profileView" destination="FXk-br-YVM" id="Cp5-D9-qg6"/>
                         <outlet property="rankLabel" destination="jyp-nw-4Jg" id="ocK-nV-Ptn"/>
-                        <outlet property="settingsView" destination="ogT-a1-Sum" id="mHg-rn-8iJ"/>
                         <outlet property="streakLabel" destination="Q2O-k4-OHH" id="T3X-8f-E06"/>
+                        <segue destination="TmZ-5s-BTM" kind="modal" identifier="settingsSegue" id="FcQ-kj-6wf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMG-Cp-vEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="551" y="1003"/>
+            <point key="canvasLocation" x="162" y="1003"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="M7P-fM-2NB">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="TmZ-5s-BTM" customClass="SettingsViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gtl-Td-ReD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" id="dR2-gh-aU4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Settings" id="VhD-Ci-AxI">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="cbS-kN-qRa">
+                                            <connections>
+                                                <action selector="didTapDone:" destination="TmZ-5s-BTM" id="Vaf-3m-Y6S"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KOe-jI-Z2a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="548" y="1003"/>
         </scene>
     </scenes>
     <resources>
