@@ -10,9 +10,15 @@ import UIKit
 
 class Intro2ViewController: UIViewController {
 
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        signUpButton.backgroundColor = UIColor.clearColor()
+        signUpButton.layer.cornerRadius = 5
+        signUpButton.layer.borderWidth = 1.5
+        signUpButton.layer.borderColor = UIColor.whiteColor().CGColor
         // Do any additional setup after loading the view.
     }
 

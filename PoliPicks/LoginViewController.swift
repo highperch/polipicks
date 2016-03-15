@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         sendConfirmationButton.layer.cornerRadius = 5
-        sendConfirmationButton.layer.borderWidth = 1
+        sendConfirmationButton.layer.borderWidth = 1.5
         sendConfirmationButton.layer.borderColor = UIColor.whiteColor().CGColor
 
     }
@@ -25,6 +25,11 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func tapDismiss(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     
 
     /*
