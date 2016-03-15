@@ -35,6 +35,8 @@ class TabBarViewController: UIViewController {
         
         //De-select previous button, remove previous ViewController
         buttons[previousIndex].selected = false
+        //Change previously selected button background to gray
+        buttons[previousIndex].backgroundColor = UIColor(red: 240, green: 240, blue: 240, alpha: 1)
         let previousVC = viewControllers[previousIndex]
         previousVC.willMoveToParentViewController(nil)
         previousVC.view.removeFromSuperview()
@@ -42,6 +44,8 @@ class TabBarViewController: UIViewController {
         
         //Select current button, add current ViewController
         sender.selected = true
+        //Change current button background to white
+        sender.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         let vc = viewControllers[selectedIndex]
         addChildViewController(vc)
         vc.view.frame = contentView.bounds
@@ -62,6 +66,8 @@ class TabBarViewController: UIViewController {
         buttons = [picksButton, leaderboardButton, profileButton]
         buttons[selectedIndex].selected = true
         didPressTab(buttons[selectedIndex])
+        
+        
 
         // Do any additional setup after loading the view.
     }
