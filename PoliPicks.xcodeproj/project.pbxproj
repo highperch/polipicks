@@ -14,6 +14,11 @@
 		1E5BB9671C97294300AED697 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9661C97294300AED697 /* LoginViewController.swift */; };
 		1E5BB9691C97970200AED697 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9681C97970200AED697 /* SettingsViewController.swift */; };
 		1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */; };
+		1E5BB96D1C989BBA00AED697 /* Tour.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E5BB96C1C989BBA00AED697 /* Tour.storyboard */; };
+		1E5BB96F1C98A10B00AED697 /* TourUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB96E1C98A10B00AED697 /* TourUpViewController.swift */; };
+		1E5BB9721C98A12100AED697 /* TourDownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9711C98A12100AED697 /* TourDownViewController.swift */; };
+		1E5BB9741C98A12B00AED697 /* TourFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9731C98A12B00AED697 /* TourFinalViewController.swift */; };
+		1E5BB9761C98A4CB00AED697 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9751C98A4CB00AED697 /* Common.swift */; };
 		1E820E511C8E842C005E4678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E501C8E842C005E4678 /* AppDelegate.swift */; };
 		1E820E531C8E842C005E4678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E521C8E842C005E4678 /* ViewController.swift */; };
 		1E820E561C8E842C005E4678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E820E541C8E842C005E4678 /* Main.storyboard */; };
@@ -50,6 +55,11 @@
 		1E5BB9661C97294300AED697 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1E5BB9681C97970200AED697 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDetailsViewController.swift; sourceTree = "<group>"; };
+		1E5BB96C1C989BBA00AED697 /* Tour.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Tour.storyboard; sourceTree = "<group>"; };
+		1E5BB96E1C98A10B00AED697 /* TourUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourUpViewController.swift; sourceTree = "<group>"; };
+		1E5BB9711C98A12100AED697 /* TourDownViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourDownViewController.swift; sourceTree = "<group>"; };
+		1E5BB9731C98A12B00AED697 /* TourFinalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourFinalViewController.swift; sourceTree = "<group>"; };
+		1E5BB9751C98A4CB00AED697 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Common.swift; path = ../../CodePathWeek2Carousel/Week2Carousel/Common.swift; sourceTree = "<group>"; };
 		1E820E4D1C8E842C005E4678 /* PoliPicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliPicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E820E501C8E842C005E4678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E820E521C8E842C005E4678 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +102,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E5BB9701C98A11100AED697 /* Tour View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1E5BB96E1C98A10B00AED697 /* TourUpViewController.swift */,
+				1E5BB9711C98A12100AED697 /* TourDownViewController.swift */,
+				1E5BB9731C98A12B00AED697 /* TourFinalViewController.swift */,
+			);
+			name = "Tour View Controllers";
+			sourceTree = "<group>";
+		};
 		1E820E441C8E842C005E4678 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +138,11 @@
 				1E820E501C8E842C005E4678 /* AppDelegate.swift */,
 				1E820E521C8E842C005E4678 /* ViewController.swift */,
 				1E820E541C8E842C005E4678 /* Main.storyboard */,
+				1E5BB96C1C989BBA00AED697 /* Tour.storyboard */,
+				1E5BB9751C98A4CB00AED697 /* Common.swift */,
 				1E5BB9621C971B2500AED697 /* LeaderboardTableViewCell.swift */,
-				1E820E801C8E92D6005E4678 /* View Controllers */,
+				1E820E801C8E92D6005E4678 /* Main View Controllers */,
+				1E5BB9701C98A11100AED697 /* Tour View Controllers */,
 				1E820E571C8E842C005E4678 /* Assets.xcassets */,
 				1E820E591C8E842C005E4678 /* LaunchScreen.storyboard */,
 				1E820E5C1C8E842C005E4678 /* Info.plist */,
@@ -145,7 +168,7 @@
 			path = PoliPicksUITests;
 			sourceTree = "<group>";
 		};
-		1E820E801C8E92D6005E4678 /* View Controllers */ = {
+		1E820E801C8E92D6005E4678 /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */,
@@ -157,7 +180,7 @@
 				1E5BB95E1C95EDB300AED697 /* LeaderboardViewController.swift */,
 				1E5BB9601C95EDD700AED697 /* ProfileViewController.swift */,
 			);
-			name = "View Controllers";
+			name = "Main View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E5BB96D1C989BBA00AED697 /* Tour.storyboard in Resources */,
 				1E820E5B1C8E842C005E4678 /* LaunchScreen.storyboard in Resources */,
 				1E820E581C8E842C005E4678 /* Assets.xcassets in Resources */,
 				1E820E561C8E842C005E4678 /* Main.storyboard in Resources */,
@@ -299,12 +323,16 @@
 				1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */,
 				1E5BB9691C97970200AED697 /* SettingsViewController.swift in Sources */,
 				1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */,
+				1E5BB9741C98A12B00AED697 /* TourFinalViewController.swift in Sources */,
+				1E5BB9721C98A12100AED697 /* TourDownViewController.swift in Sources */,
 				1E5BB95B1C95ED7500AED697 /* PicksViewController.swift in Sources */,
 				1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */,
 				1E820E531C8E842C005E4678 /* ViewController.swift in Sources */,
 				1E820E821C8E930A005E4678 /* TabBarViewController.swift in Sources */,
 				1E5BB9611C95EDD700AED697 /* ProfileViewController.swift in Sources */,
 				1E820E511C8E842C005E4678 /* AppDelegate.swift in Sources */,
+				1E5BB9761C98A4CB00AED697 /* Common.swift in Sources */,
+				1E5BB96F1C98A10B00AED697 /* TourUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
