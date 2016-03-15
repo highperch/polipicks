@@ -1,32 +1,19 @@
 //
-//  MakeAPickViewController.swift
+//  PickDetailsViewController.swift
 //  PoliPicks
 //
-//  Created by Justin Peng on 3/13/16.
+//  Created by Justin Peng on 3/14/16.
 //  Copyright © 2016 Justin Peng. All rights reserved.
 //
 
 import UIKit
 
-class PicksViewController: UIViewController {
+class PickDetailsViewController: UIViewController {
 
-    var sandersPick: Bool!
-    var clintonPick: Bool!
-    var trumpPick: Bool!
-    var kasichPick: Bool!
-    var rubioPick: Bool!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     
-    @IBOutlet weak var cardView: UIView!
-    
-    @IBAction func didTapImage(sender: UIButton) {
-        self.performSegueWithIdentifier("confirmPickSegue", sender: self)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        //cardView.layer.shadowOffset = CGSizeMake(5,1)
-        cardView.layer.shadowRadius = 1
-        cardView.layer.shadowOpacity = 1
-        
         // Do any additional setup after loading the view.
     }
 

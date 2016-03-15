@@ -21,6 +21,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource {
 //        print(userData)
         cell.leaderboardTableViewName.text = userData.first
         cell.leaderboardTableViewLocation.text = userData.last
+        cell.leaderboardTableViewProfilePicture.image = UIImage(named: "ic_account_circle")
         //cell.leaderboardTableViewScore.text = userData.valueForKeyPath("score")
         
         return cell

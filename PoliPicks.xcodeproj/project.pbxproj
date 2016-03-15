@@ -13,6 +13,7 @@
 		1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9621C971B2500AED697 /* LeaderboardTableViewCell.swift */; };
 		1E5BB9671C97294300AED697 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9661C97294300AED697 /* LoginViewController.swift */; };
 		1E5BB9691C97970200AED697 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB9681C97970200AED697 /* SettingsViewController.swift */; };
+		1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */; };
 		1E820E511C8E842C005E4678 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E501C8E842C005E4678 /* AppDelegate.swift */; };
 		1E820E531C8E842C005E4678 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E521C8E842C005E4678 /* ViewController.swift */; };
 		1E820E561C8E842C005E4678 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E820E541C8E842C005E4678 /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		1E5BB9621C971B2500AED697 /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		1E5BB9661C97294300AED697 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1E5BB9681C97970200AED697 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickDetailsViewController.swift; sourceTree = "<group>"; };
 		1E820E4D1C8E842C005E4678 /* PoliPicks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoliPicks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E820E501C8E842C005E4678 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E820E521C8E842C005E4678 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 		1E820E801C8E92D6005E4678 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */,
 				1E5BB9681C97970200AED697 /* SettingsViewController.swift */,
 				1E820E831C90FEDA005E4678 /* IntroViewController.swift */,
 				1E5BB9661C97294300AED697 /* LoginViewController.swift */,
@@ -295,6 +298,7 @@
 				1E5BB95F1C95EDB300AED697 /* LeaderboardViewController.swift in Sources */,
 				1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */,
 				1E5BB9691C97970200AED697 /* SettingsViewController.swift in Sources */,
+				1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */,
 				1E5BB95B1C95ED7500AED697 /* PicksViewController.swift in Sources */,
 				1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */,
 				1E820E531C8E842C005E4678 /* ViewController.swift in Sources */,
