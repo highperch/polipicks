@@ -231,6 +231,7 @@
 				1E820E681C8E842C005E4678 /* Sources */,
 				1E820E691C8E842C005E4678 /* Frameworks */,
 				1E820E6A1C8E842C005E4678 /* Resources */,
+				24D2C70C1C98E55F001EDCE6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -315,6 +316,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24D2C70C1C98E55F001EDCE6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 12;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 00ab11a2722bc30214254a1845ce6b98a8f4b9c6 46ebf73f019077bf9de67c6428deef07ffaca6d008e564edc6b887ac8ae612bc";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1E820E491C8E842C005E4678 /* Sources */ = {
@@ -525,6 +542,7 @@
 		1E820E7C1C8E842C005E4678 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = PoliPicksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JP2GQ.PoliPicksUITests;
@@ -537,6 +555,7 @@
 		1E820E7D1C8E842C005E4678 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				INFOPLIST_FILE = PoliPicksUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JP2GQ.PoliPicksUITests;
