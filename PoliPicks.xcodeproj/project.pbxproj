@@ -26,7 +26,6 @@
 		1E820E711C8E842C005E4678 /* PoliPicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E701C8E842C005E4678 /* PoliPicksUITests.swift */; };
 		1E820E821C8E930A005E4678 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E811C8E930A005E4678 /* TabBarViewController.swift */; };
 		1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E831C90FEDA005E4678 /* IntroViewController.swift */; };
-		24CD1B3E1C98DDB4001F603E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CD1B3D1C98DDB4001F603E /* SignUpViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
 		24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -75,7 +74,6 @@
 		1E820E721C8E842C005E4678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E820E811C8E930A005E4678 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../TabBarViewController.swift; sourceTree = "<group>"; };
 		1E820E831C90FEDA005E4678 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
-		24CD1B3D1C98DDB4001F603E /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		24DC41E91C98B4D200E64E21 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro2ViewController.swift; sourceTree = "<group>"; };
 		24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -180,7 +178,6 @@
 				1E820E831C90FEDA005E4678 /* IntroViewController.swift */,
 				24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */,
 				1E5BB9661C97294300AED697 /* LoginViewController.swift */,
-				24CD1B3D1C98DDB4001F603E /* SignUpViewController.swift */,
 				1E820E811C8E930A005E4678 /* TabBarViewController.swift */,
 				1E5BB95A1C95ED7500AED697 /* PicksViewController.swift */,
 				1E5BB95E1C95EDB300AED697 /* LeaderboardViewController.swift */,
@@ -234,7 +231,6 @@
 				1E820E681C8E842C005E4678 /* Sources */,
 				1E820E691C8E842C005E4678 /* Frameworks */,
 				1E820E6A1C8E842C005E4678 /* Resources */,
-				24CD1B3C1C98DCA4001F603E /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -320,22 +316,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		24CD1B3C1C98DCA4001F603E /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 00ab11a2722bc30214254a1845ce6b98a8f4b9c6 46ebf73f019077bf9de67c6428deef07ffaca6d008e564edc6b887ac8ae612bc";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		1E820E491C8E842C005E4678 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -346,7 +326,6 @@
 				24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */,
 				1E5BB95F1C95EDB300AED697 /* LeaderboardViewController.swift in Sources */,
 				1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */,
-				24CD1B3E1C98DDB4001F603E /* SignUpViewController.swift in Sources */,
 				1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */,
 				1E5BB9741C98A12B00AED697 /* TourFinalViewController.swift in Sources */,
 				24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */,
