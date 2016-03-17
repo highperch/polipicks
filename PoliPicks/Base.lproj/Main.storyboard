@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Svz-bs-lNh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Svz-bs-lNh">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--Intro View Controller-->
@@ -144,6 +144,7 @@
                                 </state>
                                 <connections>
                                     <action selector="pressSendConfirmationButton:" destination="Svz-bs-lNh" eventType="touchUpInside" id="WCh-BW-z1q"/>
+                                    <segue destination="2cj-KY-onS" kind="modal" id="V3y-K7-qhJ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Phone #" minimumFontSize="17" id="iVt-Xp-2XM">
@@ -206,6 +207,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="z5b-PK-2YS" kind="modal" id="023-80-Rre"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HnY-px-sFg">
                                 <rect key="frame" x="35" y="187" width="250" height="30"/>
@@ -223,10 +227,18 @@
             </objects>
             <point key="canvasLocation" x="162" y="-322"/>
         </scene>
+        <!--Tour-->
+        <scene sceneID="Zru-cy-1wJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tour" id="z5b-PK-2YS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="usm-Fq-2Vd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="471.5" y="-395"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="nSk-cB-Ztd">
             <objects>
-                <tabBarController id="6Ha-4p-p2t" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="6Ha-4p-p2t" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="y8v-Ps-CvS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -416,7 +428,7 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Azb-n9-GAH" id="I4r-tM-BON">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="F7b-S3-eg1">
