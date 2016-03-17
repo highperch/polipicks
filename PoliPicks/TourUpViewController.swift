@@ -65,6 +65,7 @@ class TourUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cardView.layer.cornerRadius = 5
         successLabel.alpha = 0
         // Do any additional setup after loading the view.
     }
