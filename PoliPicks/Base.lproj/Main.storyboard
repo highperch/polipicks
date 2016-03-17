@@ -319,13 +319,6 @@
                                                 <rect key="frame" x="40" y="16" width="200" height="200"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YT4-PZ-gFg">
-                                                <rect key="frame" x="40" y="16" width="200" height="200"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="didTapImage:" destination="l8W-OE-0hy" eventType="touchUpInside" id="dSn-LO-rdh"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Y2-EJ-03j">
                                                 <rect key="frame" x="20" y="224" width="240" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -335,6 +328,10 @@
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="gME-zz-Hpm" appends="YES" id="2E0-OA-fjO"/>
+                                        </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HQ7-16-v3S">
                                         <rect key="frame" x="93" y="401" width="30" height="30"/>
@@ -349,11 +346,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Make a Pick" id="gby-Dk-sK1"/>
                     <connections>
+                        <outlet property="candidateImage" destination="ko9-7c-iWp" id="jeQ-wr-DFd"/>
+                        <outlet property="candidateName" destination="0Y2-EJ-03j" id="c30-fe-6xG"/>
                         <outlet property="cardView" destination="AyW-W8-sfm" id="3Ek-Mq-X8X"/>
                         <segue destination="QJe-RF-bim" kind="push" identifier="confirmPickSegue" id="kN5-A6-5ae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGM-mu-dlc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="gME-zz-Hpm"/>
             </objects>
             <point key="canvasLocation" x="-417" y="1074"/>
         </scene>

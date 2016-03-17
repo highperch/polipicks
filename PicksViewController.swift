@@ -9,24 +9,38 @@
 import UIKit
 
 class PicksViewController: UIViewController {
-
-    var sandersPick: Bool!
-    var clintonPick: Bool!
-    var trumpPick: Bool!
-    var kasichPick: Bool!
-    var rubioPick: Bool!
+    
+    var berniePick: Bool!
+    var hillaryPick: Bool!
+    var donaldPick: Bool!
+    var johnPick: Bool!
+    var marcoPick: Bool!
+    
+    var pickIndex: Int!
+    
+    var images = ["bernie-sanders", "hillary-clinton", "donald-trump", "john-kasich", "marco-rubio"]
+    var names = ["Bernie Sanders", "Hillary Clinton", "Donald Trump", "John Kasich", "Marco Rubio"]
+    var picks: [Bool] = [berniePick, hillaryPick, donaldPick, johnPick, marcoPick]
     
     @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var candidateImage: UIImageView!
+    @IBOutlet weak var candidateName: UILabel!
     
-    @IBAction func didTapImage(sender: UIButton) {
-        self.performSegueWithIdentifier("confirmPickSegue", sender: self)
+    func madePick() {
+        pickIndex = pickIndex + 1
+        candidateImage.image = UIImage(named: images[pickIndex])
+        candidateName.text = names[pickIndex]
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //cardView.layer.shadowOffset = CGSizeMake(5,1)
         cardView.layer.shadowRadius = 1
         cardView.layer.shadowOpacity = 1
         
+        pickIndex = 0
+        candidateImage.image = UIImage(named: images[pickIndex])
+        candidateName.text = names[pickIndex]
         // Do any additional setup after loading the view.
     }
 
