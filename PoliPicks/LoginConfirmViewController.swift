@@ -1,38 +1,24 @@
 //
-//  LoginViewController.swift
+//  LoginConfirmViewController.swift
 //  PoliPicks
 //
-//  Created by Justin Peng on 3/14/16.
+//  Created by Grace Qi on 3/16/16.
 //  Copyright © 2016 Justin Peng. All rights reserved.
 //
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginConfirmViewController: UIViewController {
 
-    @IBOutlet weak var sendConfirmationButton: UIButton!
-    @IBOutlet weak var phoneNumber: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        sendConfirmationButton.layer.cornerRadius = 5
-        sendConfirmationButton.layer.borderWidth = 1.5
-        sendConfirmationButton.layer.borderColor = UIColor.whiteColor().CGColor
 
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func tapDismiss(sender: UITapGestureRecognizer) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func pressSendConfirmationButton(sender: AnyObject) {
-        
     }
     
 
