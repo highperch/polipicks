@@ -23,25 +23,20 @@ class TourUpViewController: UIViewController {
     @IBOutlet weak var successLabel: UILabel!
     
     @IBAction func didPanCard(sender: UIPanGestureRecognizer) {
-        var translation = sender.translationInView(view).y
-        var velocity = sender.velocityInView(view).y
+        var translation = sender.translationInView(cardView).y
+        var velocity = sender.velocityInView(cardView).y
         
         if sender.state == UIGestureRecognizerState.Began {
             
         } else if sender.state == UIGestureRecognizerState.Changed {
-            
+            print("velocity:\(velocity)")
             //Only allow to move up
-            if translation > 0 {
+            if translation < 0 {
                 //Move the card up by the amount swiped
                 cardView.center.y = cardViewOriginalCenter.y + translation
             }
-            if translation > 100 {
-                completeStep()
-            }
-            
         } else if sender.state == UIGestureRecognizerState.Ended {
-            //If card was moving up past a certain point
-            if velocity > 0 && translation > 50 {
+            if translation < -100 || velocity < 0 {
                 completeStep()
             }
         }
@@ -50,21 +45,26 @@ class TourUpViewController: UIViewController {
     //Declared a function to complete tutorial step
     func completeStep() {
         //Move the card up off the screen
-        UIView.animateWithDuration(0.4) { () -> Void in
-            self.cardView.center.y += 400
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.cardView.center.y = self.cardView.center.y - 400
+            }) { (Bool) -> Void in
+                //Show the success label
+                UIView.animateWithDuration(0.2, animations: { () -> Void in
+                    self.successLabel.alpha = 1
+                }) { (Bool) -> Void in
+                    //After a second, move them on
+                    delay(1) { () -> () in
+                        self.performSegueWithIdentifier("tourDownSegue", sender: self)
+                }
+            }
         }
-        //Show the success label
-        UIView.animateWithDuration(0.2) { () -> Void in
-            self.successLabel.alpha = 1
-        }
-        //After a second, move them on
-        delay(1) { () -> () in
-            self.performSegueWithIdentifier("tourDownSegue", sender: self)
-        }
+
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cardViewOriginalCenter = cardView.center
+        cardView.layer.cornerRadius = 5
         successLabel.alpha = 0
         // Do any additional setup after loading the view.
     }

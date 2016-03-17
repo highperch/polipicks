@@ -26,9 +26,11 @@
 		1E820E711C8E842C005E4678 /* PoliPicksUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E701C8E842C005E4678 /* PoliPicksUITests.swift */; };
 		1E820E821C8E930A005E4678 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E811C8E930A005E4678 /* TabBarViewController.swift */; };
 		1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E831C90FEDA005E4678 /* IntroViewController.swift */; };
-		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; settings = {ASSET_TAGS = (); }; };
-		24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		1EDCFC8F1C9A513000BE2CFA /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCFC8C1C9A513000BE2CFA /* BorderedButton.swift */; };
+		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; };
+		24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */; };
+		24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */; };
+		24D2C70F1C9A51CB001EDCE6 /* LoginConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		1E820E721C8E842C005E4678 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E820E811C8E930A005E4678 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../TabBarViewController.swift; sourceTree = "<group>"; };
 		1E820E831C90FEDA005E4678 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		1EDCFC8C1C9A513000BE2CFA /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfirmViewController.swift; sourceTree = "<group>"; };
 		24DC41E91C98B4D200E64E21 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro2ViewController.swift; sourceTree = "<group>"; };
 		24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +144,8 @@
 				1E820E501C8E842C005E4678 /* AppDelegate.swift */,
 				1E820E521C8E842C005E4678 /* ViewController.swift */,
 				1E820E541C8E842C005E4678 /* Main.storyboard */,
+				1EDCFC8C1C9A513000BE2CFA /* BorderedButton.swift */,
+				24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */,
 				1E5BB96C1C989BBA00AED697 /* Tour.storyboard */,
 				24DC41E91C98B4D200E64E21 /* Common.swift */,
 				1E5BB9621C971B2500AED697 /* LeaderboardTableViewCell.swift */,
@@ -349,8 +355,10 @@
 				1E5BB9721C98A12100AED697 /* TourDownViewController.swift in Sources */,
 				1E5BB95B1C95ED7500AED697 /* PicksViewController.swift in Sources */,
 				1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */,
+				1EDCFC8F1C9A513000BE2CFA /* BorderedButton.swift in Sources */,
 				1E820E531C8E842C005E4678 /* ViewController.swift in Sources */,
 				1E820E821C8E930A005E4678 /* TabBarViewController.swift in Sources */,
+				24D2C70F1C9A51CB001EDCE6 /* LoginConfirmViewController.swift in Sources */,
 				1E5BB9611C95EDD700AED697 /* ProfileViewController.swift in Sources */,
 				1E820E511C8E842C005E4678 /* AppDelegate.swift in Sources */,
 				1E5BB96F1C98A10B00AED697 /* TourUpViewController.swift in Sources */,
