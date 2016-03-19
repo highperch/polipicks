@@ -29,7 +29,6 @@ class TourUpViewController: UIViewController {
         if sender.state == UIGestureRecognizerState.Began {
             
         } else if sender.state == UIGestureRecognizerState.Changed {
-            print("velocity:\(velocity)")
             //Only allow to move up
             if translation < 0 {
                 //Move the card up by the amount swiped

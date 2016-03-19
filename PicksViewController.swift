@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class PicksViewController: UIViewController {
     
@@ -19,9 +20,13 @@ class PicksViewController: UIViewController {
     var pickIndex: Int!
     var cardViewOriginalCenter: CGPoint!
     
+    var lastUpdated: Int!
+    
     var images = ["bernie-sanders", "hillary-clinton", "donald-trump", "john-kasich", "marco-rubio"]
     var names = ["Bernie Sanders", "Hillary Clinton", "Donald Trump", "John Kasich", "Marco Rubio"]
     var picks: [Bool]!
+    
+    var responseData: [NSDictionary] = []
     
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var candidateImage: UIImageView!
@@ -29,21 +34,25 @@ class PicksViewController: UIViewController {
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
     func didChooseUp() {
+        if pickIndex > 4 {
         picks[pickIndex] = true
         print(pickIndex)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.cardView.center.y = self.cardView.center.y - 400
         })
         nextPick()
+        }
     }
     
     func didChooseDown() {
+        if pickIndex > 4 {
         picks[pickIndex] = false
         print(pickIndex)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.cardView.center.y = self.cardView.center.y + 400
         })
         nextPick()
+        }
     }
     
     func nextPick() {
@@ -124,6 +133,52 @@ class PicksViewController: UIViewController {
         
         picks = [berniePick, hillaryPick, donaldPick, johnPick, marcoPick]
         // Do any additional setup after loading the view.
+        
+        //AFNetworking
+        let url = NSURL(string:"http://elections.huffingtonpost.com/pollster/api/charts/2016-national-gop-primary.json")
+        let request = NSURLRequest(URL: url!)
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (data, response, error) in
+                if let data = data {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            
+                            //Pull out Last Updated
+                            var lastUpdated = responseDictionary.valueForKey("last_updated")
+                            print(lastUpdated!)
+                            
+                            //Reformat Last Updated
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            let date = dateFormatter.dateFromString(String(lastUpdated!))
+                            print(date)
+                            
+                            //Store estimate in blob
+                            if let jsonResult = responseDictionary as? [String: AnyObject] {
+                                var jsonCleanDictionary = [String: AnyObject]()
+                                
+                                for (key, value) in jsonResult.enumerate() {
+                                    if !(value.1 is NSNull) {
+                                        jsonCleanDictionary[value.0] = value.1
+                                    }
+                                }
+                                
+                                
+                                
+                                print("jsonCleanDictionary: \(jsonCleanDictionary)")
+                                // Store the returned json blob into the responseData property
+                                //self.responseData = jsonCleanDictionary["data"] as! [NSDictionary]
+                            }
+                    }
+                }
+        });
+        task.resume()
     }
 
     override func didReceiveMemoryWarning() {
