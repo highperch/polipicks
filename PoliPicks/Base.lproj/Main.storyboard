@@ -305,18 +305,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="xWe-Qg-Uoy" userLabel="Confirm Picks View">
+                            <view contentMode="scaleToFill" id="xWe-Qg-Uoy" userLabel="Score View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <navigationBar contentMode="scaleToFill" id="wK0-jC-kkb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <items>
-                                            <navigationItem title="Make Your Picks" id="qCN-uy-bJZ"/>
-                                        </items>
-                                    </navigationBar>
-                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="I2J-i4-Cmf" userLabel="Make a Pick View">
@@ -329,6 +320,14 @@
                                         <state key="normal" title="Down"/>
                                         <connections>
                                             <action selector="didPressDown:" destination="l8W-OE-0hy" eventType="touchUpInside" id="It2-Co-5aZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HQ7-16-v3S">
+                                        <rect key="frame" x="93" y="401" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Up"/>
+                                        <connections>
+                                            <action selector="didPressUp:" destination="l8W-OE-0hy" eventType="touchUpInside" id="2Db-0s-Mn5"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="AyW-W8-sfm">
@@ -353,14 +352,6 @@
                                             <outletCollection property="gestureRecognizers" destination="gME-zz-Hpm" appends="YES" id="2E0-OA-fjO"/>
                                         </connections>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HQ7-16-v3S">
-                                        <rect key="frame" x="93" y="401" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Up"/>
-                                        <connections>
-                                            <action selector="didPressUp:" destination="l8W-OE-0hy" eventType="touchUpInside" id="2Db-0s-Mn5"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -373,6 +364,8 @@
                         <outlet property="candidateName" destination="0Y2-EJ-03j" id="c30-fe-6xG"/>
                         <outlet property="cardView" destination="AyW-W8-sfm" id="3Ek-Mq-X8X"/>
                         <outlet property="cardViewPanGestureRecognizer" destination="gME-zz-Hpm" id="UOh-eb-Cqq"/>
+                        <outlet property="makeAPickView" destination="I2J-i4-Cmf" id="0oh-Ja-FQz"/>
+                        <outlet property="picksClosedView" destination="Pbe-ox-hmT" id="hKQ-tH-KjD"/>
                         <segue destination="QJe-RF-bim" kind="push" identifier="confirmPickSegue" id="kN5-A6-5ae"/>
                     </connections>
                 </viewController>
