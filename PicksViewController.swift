@@ -26,8 +26,8 @@ class PicksViewController: UIViewController {
     //Store original center for animations
     var cardViewOriginalCenter: CGPoint!
     
-    //Storing the last updated date to compare to the user's last guesses
-    var lastUpdated: Int!
+    //If there are new results
+    var areNewResults: Bool!
     
     //Arrays for picks and images/names/scores
     var images = ["bernie-sanders", "hillary-clinton", "donald-trump", "john-kasich", "marco-rubio"]
@@ -164,6 +164,17 @@ class PicksViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Fake pickDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        pickDate = dateFormatter.dateFromString("2015-03-16")
+        print("pickDate: \(pickDate)")
+        
+        //pickDate = NSDate()
+        
+        areNewResults = false
+        
         //Stored value for current poll's scores
         var bernieCurrent: Int!
         var hillaryCurrent: Int!
@@ -222,7 +233,10 @@ class PicksViewController: UIViewController {
                             let dateFormatter = NSDateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                             let date = dateFormatter.dateFromString(String(lastUpdated!))
-                            print(date)
+                            if (date!.isGreaterThanDate(self.pickDate)) {
+                                self.areNewResults = true
+                            }
+                            print(self.areNewResults)
                             
                             //Store estimate in blob
                             if let jsonResult = responseDictionary as? [String: AnyObject] {
@@ -236,7 +250,7 @@ class PicksViewController: UIViewController {
                                 
                                 
                                 
-                                print("jsonCleanDictionary: \(jsonCleanDictionary)")
+                                //print("jsonCleanDictionary: \(jsonCleanDictionary)")
                                 // Store the returned json blob into the responseData property
                                 //self.responseData = jsonCleanDictionary["data"] as! [NSDictionary]
                             }
