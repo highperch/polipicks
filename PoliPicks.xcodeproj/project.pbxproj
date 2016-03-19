@@ -27,10 +27,11 @@
 		1E820E821C8E930A005E4678 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E811C8E930A005E4678 /* TabBarViewController.swift */; };
 		1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E831C90FEDA005E4678 /* IntroViewController.swift */; };
 		1EDCFC8F1C9A513000BE2CFA /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCFC8C1C9A513000BE2CFA /* BorderedButton.swift */; };
+		24D2C70F1C9A51CB001EDCE6 /* LoginConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */; };
 		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; };
 		24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */; };
 		24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */; };
-		24D2C70F1C9A51CB001EDCE6 /* LoginConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		E0C0599FD386F14650D9E7DD /* Pods_PoliPicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BB43BE4D6910ED0FA8D90F /* Pods_PoliPicks.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		13F3876A108A92C3C2D8AA77 /* Pods-PoliPicks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliPicks.release.xcconfig"; path = "Pods/Target Support Files/Pods-PoliPicks/Pods-PoliPicks.release.xcconfig"; sourceTree = "<group>"; };
 		1E5BB95A1C95ED7500AED697 /* PicksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PicksViewController.swift; path = ../PicksViewController.swift; sourceTree = "<group>"; };
 		1E5BB95E1C95EDB300AED697 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		1E5BB9601C95EDD700AED697 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,8 @@
 		24DC41E91C98B4D200E64E21 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Intro2ViewController.swift; sourceTree = "<group>"; };
 		24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		87BB43BE4D6910ED0FA8D90F /* Pods_PoliPicks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoliPicks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E72160889516CE389D5EEFCC /* Pods-PoliPicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoliPicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PoliPicks/Pods-PoliPicks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0C0599FD386F14650D9E7DD /* Pods_PoliPicks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,8 @@
 				1E820E641C8E842C005E4678 /* PoliPicksTests */,
 				1E820E6F1C8E842C005E4678 /* PoliPicksUITests */,
 				1E820E4E1C8E842C005E4678 /* Products */,
+				FCEE0760BC580AD925EDC8C9 /* Pods */,
+				7D92242D2075AD5788B15A70 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +199,23 @@
 			name = "Main View Controllers";
 			sourceTree = "<group>";
 		};
+		7D92242D2075AD5788B15A70 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				87BB43BE4D6910ED0FA8D90F /* Pods_PoliPicks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FCEE0760BC580AD925EDC8C9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E72160889516CE389D5EEFCC /* Pods-PoliPicks.debug.xcconfig */,
+				13F3876A108A92C3C2D8AA77 /* Pods-PoliPicks.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -199,9 +223,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1E820E751C8E842C005E4678 /* Build configuration list for PBXNativeTarget "PoliPicks" */;
 			buildPhases = (
+				851DD69EC8453949BD28A885 /* Check Pods Manifest.lock */,
 				1E820E491C8E842C005E4678 /* Sources */,
 				1E820E4A1C8E842C005E4678 /* Frameworks */,
 				1E820E4B1C8E842C005E4678 /* Resources */,
+				571056850EE0E1371BFE5F1E /* Embed Pods Frameworks */,
+				91C1A0596154CF83D4AD8F12 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -336,6 +363,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 00ab11a2722bc30214254a1845ce6b98a8f4b9c6 46ebf73f019077bf9de67c6428deef07ffaca6d008e564edc6b887ac8ae612bc";
+		};
+		571056850EE0E1371BFE5F1E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliPicks/Pods-PoliPicks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		851DD69EC8453949BD28A885 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91C1A0596154CF83D4AD8F12 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PoliPicks/Pods-PoliPicks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -501,6 +573,7 @@
 		};
 		1E820E761C8E842C005E4678 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E72160889516CE389D5EEFCC /* Pods-PoliPicks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PoliPicks/Info.plist;
@@ -513,6 +586,7 @@
 		};
 		1E820E771C8E842C005E4678 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 13F3876A108A92C3C2D8AA77 /* Pods-PoliPicks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PoliPicks/Info.plist;
