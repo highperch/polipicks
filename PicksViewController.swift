@@ -14,9 +14,9 @@ class PicksViewController: UIViewController {
     //Store user's picks
     var berniePick: Bool!
     var hillaryPick: Bool!
-    var donaldPick: Bool!
-    var johnPick: Bool!
-    var marcoPick: Bool!
+    var cruzPick: Bool!
+    var trumpPick: Bool!
+    var kasichPick: Bool!
     
     //Store the user's pick date
     var pickDate: NSDate!
@@ -30,17 +30,18 @@ class PicksViewController: UIViewController {
     var areNewResults: Bool!
     
     //Arrays for picks and images/names/scores
-    var images = ["bernie-sanders", "hillary-clinton", "donald-trump", "john-kasich", "marco-rubio"]
-    var names = ["Bernie Sanders", "Hillary Clinton", "Donald Trump", "John Kasich", "Marco Rubio"]
+    var images = ["bernie-sanders", "hillary-clinton", "ted-cruz", "donald-trump", "john-kasich"]
+    var names = ["Bernie Sanders", "Hillary Clinton", "Ted Cruz", "Donald Trump", "John Kasich"]
+    var performance: [Double]!
     var picks: [Bool]!
     
-    //Stored value for current scores
-    var berniePerformance: Int!
-    var hillaryPerformance: Int!
-    var donaldPerformance: Int!
-    var johnPerformance: Int!
-    var marcoPerformance: Int!
-    
+    //Stored value for last movement of each candidate
+    var berniePerformance: Double!
+    var hillaryPerformance: Double!
+    var cruzPerformance: Double!
+    var trumpPerformance: Double!
+    var kasichPerformance: Double!
+
     //NSUserDefaults initialization
     var defaults = NSUserDefaults()
     
@@ -54,6 +55,7 @@ class PicksViewController: UIViewController {
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var candidateImage: UIImageView!
     @IBOutlet weak var candidateName: UILabel!
+    @IBOutlet weak var candidatePerformance: UILabel!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
     func didChooseUp() {
@@ -89,6 +91,8 @@ class PicksViewController: UIViewController {
         //Load up the next candidate image and name
         candidateImage.image = UIImage(named: images[pickIndex])
         candidateName.text = names[pickIndex]
+        candidatePerformance.text = String(performance[pickIndex])
+        print(String(performance[pickIndex]))
         
         //Prep for animation in of the next card
         cardView.center.x = cardViewOriginalCenter.x + 500
@@ -106,9 +110,9 @@ class PicksViewController: UIViewController {
         defaults.setValue(pickDate, forKey: "pickDate")
         defaults.setValue(berniePick, forKey: "berniePick")
         defaults.setValue(hillaryPick, forKey: "hillaryPick")
-        defaults.setValue(donaldPick, forKey: "donaldPick")
-        defaults.setValue(johnPick, forKey: "johnPick")
-        defaults.setValue(marcoPick, forKey: "marcoPick")
+        defaults.setValue(cruzPick, forKey: "cruzPick")
+        defaults.setValue(trumpPick, forKey: "donaldPick")
+        defaults.setValue(kasichPick, forKey: "johnPick")
         defaults.synchronize()
         
         makeAPickView.alpha = 0
@@ -157,9 +161,17 @@ class PicksViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        //Did not make picks
+        //Show option to make picks
+        
+        //Made picks, no updated picks available
+        //Show pick summary
         if pickIndex > 4 {
             
         }
+        
+        //Made picks, updated picks available
+        //Show score screen
     }
     
     override func viewDidLoad() {
@@ -178,16 +190,16 @@ class PicksViewController: UIViewController {
         //Stored value for current poll's scores
         var bernieCurrent: Int!
         var hillaryCurrent: Int!
-        var donaldCurrent: Int!
-        var johnCurrent: Int!
-        var marcoCurrent: Int!
+        var cruzCurrent: Double!
+        var trumpCurrent: Double!
+        var kasichCurrent: Double!
         
         //Stored value for last poll's scores
         var berniePast: Int!
         var hillaryPast: Int!
-        var donaldPast: Int!
-        var johnPast: Int!
-        var marcoPast: Int!
+        var cruzPast: Double!
+        var trumpPast: Double!
+        var kasichPast: Double!
         
         //cardView.layer.shadowOffset = CGSizeMake(5,1)
         cardView.layer.shadowRadius = 1
@@ -202,12 +214,22 @@ class PicksViewController: UIViewController {
         //Setting defaults to up (not sure why this is needed for the app not to crash
         berniePick = true
         hillaryPick = true
-        donaldPick = true
-        johnPick = true
-        marcoPick = true
+        cruzPick = true
+        trumpPick = true
+        kasichPick = true
         
         //Populating picks
-        picks = [berniePick, hillaryPick, donaldPick, johnPick, marcoPick]
+        picks = [berniePick, hillaryPick, cruzPick, trumpPick, kasichPick]
+        
+        //Setting defaults to 0 in case we can't pull any values
+        berniePerformance = 0
+        hillaryPerformance = 0
+        cruzPerformance = 0
+        trumpPerformance = 0
+        kasichPerformance = 0
+        
+        //Populating performance
+        performance = [berniePerformance, hillaryPerformance, cruzPerformance, trumpPerformance, kasichPerformance]
         
         //AFNetworking Setup
         let url = NSURL(string:"http://elections.huffingtonpost.com/pollster/api/charts/2016-national-gop-primary.json")
@@ -240,20 +262,58 @@ class PicksViewController: UIViewController {
                             
                             //Store estimate in blob
                             if let jsonResult = responseDictionary as? [String: AnyObject] {
-                                var jsonCleanDictionary = [String: AnyObject]()
                                 
-                                for (key, value) in jsonResult.enumerate() {
-                                    if !(value.1 is NSNull) {
-                                        jsonCleanDictionary[value.0] = value.1
-                                    }
-                                }
-                                
-                                
-                                
-                                //print("jsonCleanDictionary: \(jsonCleanDictionary)")
-                                // Store the returned json blob into the responseData property
-                                //self.responseData = jsonCleanDictionary["data"] as! [NSDictionary]
+                            //Clean out the nulls from it
+                            let clean:[String: AnyObject] = Dictionary(
+                                jsonResult.flatMap(){
+                                    // convert NSNull to unset optional
+                                    // flatmap filters unset optionals
+                                    return ($0.1 is NSNull) ? .None : $0
+                                })
+                                //Store estimates by date in responseData
+                                self.responseData = clean["estimates_by_date"] as! [NSDictionary]
                             }
+                            //Pull out the latest set of data
+                            var latestDataRaw = self.responseData[0]
+                            //Parse out the scores
+                            var latestData = latestDataRaw.valueForKeyPath("estimates.value")
+                            
+                            //Pull out the second most recent set of data
+                            var pastDataRaw = self.responseData[1]
+                            //Parse out the scores
+                            var pastData = pastDataRaw.valueForKeyPath("estimates.value")
+                            
+                            //Store the scores in past and current candidate variables
+                            
+                            //Cruz
+                            cruzCurrent = latestData![2] as! Double
+                            cruzPast = pastData![2] as! Double
+                            self.cruzPerformance = cruzCurrent - cruzPast
+                            //Round to one decimal place
+                            self.cruzPerformance = self.cruzPerformance.roundToPlaces(1)
+                            print("cruzCurrent:\(cruzCurrent)")
+                            print("cruzPast:\(cruzPast)")
+                            print("cruzPerformance:\(self.cruzPerformance)")
+                            
+                            //Trump
+                            trumpCurrent = latestData![3] as! Double
+                            trumpPast = pastData![3] as! Double
+                            self.trumpPerformance = trumpCurrent - trumpPast
+                            //Round to one decimal place
+                            self.trumpPerformance = self.trumpPerformance.roundToPlaces(1)
+                            print("trumpCurrent:\(trumpCurrent)")
+                            print("trumpPast:\(trumpPast)")
+                            print("trumpPerformance:\(self.trumpPerformance)")
+                            
+                            //Kasich
+                            kasichCurrent = latestData![4] as! Double
+                            kasichPast = pastData![4] as! Double
+                            self.kasichPerformance = kasichCurrent - kasichPast
+                            //Round to one decimal place
+                            self.kasichPerformance = self.kasichPerformance.roundToPlaces(1)
+                            print("kasichCurrent:\(kasichCurrent)")
+                            print("kasichPast:\(kasichPast)")
+                            print("kasichPerformance:\(self.trumpPerformance)")
                     }
                 }
         });
