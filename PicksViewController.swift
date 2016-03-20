@@ -56,6 +56,7 @@ class PicksViewController: UIViewController {
     @IBOutlet weak var candidateImage: UIImageView!
     @IBOutlet weak var candidateName: UILabel!
     @IBOutlet weak var candidatePerformance: UILabel!
+    @IBOutlet weak var candidatePerformanceArrow: UIImageView!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
     func didChooseUp() {
@@ -88,11 +89,17 @@ class PicksViewController: UIViewController {
             //Move on to the submit screen
             print(picks)
         } else {
-        //Load up the next candidate image and name
+        //Load up the next candidate image, name, and performance
         candidateImage.image = UIImage(named: images[pickIndex])
         candidateName.text = names[pickIndex]
         candidatePerformance.text = String(performance[pickIndex])
-        print(String(performance[pickIndex]))
+        print(performance[pickIndex])
+        //Set pick arrow direction
+        if performance[pickIndex] > 0 {
+            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_up")
+        } else if performance[pickIndex] < 0 {
+            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_down")
+        }
         
         //Prep for animation in of the next card
         cardView.center.x = cardViewOriginalCenter.x + 500
@@ -136,7 +143,6 @@ class PicksViewController: UIViewController {
             
         } else if sender.state == UIGestureRecognizerState.Changed {
             cardView.center.y = cardViewOriginalCenter.y + translation
-            print(translation)
             
         } else if sender.state == UIGestureRecognizerState.Ended {
             print("ended")
@@ -228,9 +234,6 @@ class PicksViewController: UIViewController {
         trumpPerformance = 0
         kasichPerformance = 0
         
-        //Populating performance
-        performance = [berniePerformance, hillaryPerformance, cruzPerformance, trumpPerformance, kasichPerformance]
-        
         //AFNetworking Setup
         let url = NSURL(string:"http://elections.huffingtonpost.com/pollster/api/charts/2016-national-gop-primary.json")
         let request = NSURLRequest(URL: url!)
@@ -314,6 +317,10 @@ class PicksViewController: UIViewController {
                             print("kasichCurrent:\(kasichCurrent)")
                             print("kasichPast:\(kasichPast)")
                             print("kasichPerformance:\(self.trumpPerformance)")
+                            
+                            //Populating performance
+                            self.performance = [self.berniePerformance, self.hillaryPerformance, self.cruzPerformance, self.trumpPerformance, self.kasichPerformance]
+                            print("performance after load\(self.performance)")
                     }
                 }
         });

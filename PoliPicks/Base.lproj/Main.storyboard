@@ -322,14 +322,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0Y2-EJ-03j">
-                                                <rect key="frame" x="8" y="224" width="232" height="28"/>
+                                                <rect key="frame" x="24" y="224" width="232" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="scd-4g-HF1">
+                                                <rect key="frame" x="216" y="226" width="24" height="24"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="P" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N2b-rK-f7U">
-                                                <rect key="frame" x="238" y="227" width="42" height="21"/>
+                                                <rect key="frame" x="240" y="227" width="32" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -353,6 +357,7 @@
                         <outlet property="candidateImage" destination="ko9-7c-iWp" id="jeQ-wr-DFd"/>
                         <outlet property="candidateName" destination="0Y2-EJ-03j" id="gXy-in-9l9"/>
                         <outlet property="candidatePerformance" destination="N2b-rK-f7U" id="Y8a-e5-bkr"/>
+                        <outlet property="candidatePerformanceArrow" destination="scd-4g-HF1" id="QI8-fV-Kwp"/>
                         <outlet property="cardView" destination="AyW-W8-sfm" id="3Ek-Mq-X8X"/>
                         <outlet property="cardViewPanGestureRecognizer" destination="gME-zz-Hpm" id="UOh-eb-Cqq"/>
                         <outlet property="makeAPickView" destination="I2J-i4-Cmf" id="0oh-Ja-FQz"/>
