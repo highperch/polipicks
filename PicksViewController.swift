@@ -9,7 +9,7 @@
 import UIKit
 import AFNetworking
 
-class PicksViewController: UIViewController {
+class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     //Store user's picks
     var berniePick: Bool!
@@ -50,6 +50,7 @@ class PicksViewController: UIViewController {
     //Outlets for views (make pick, closed, score)
     @IBOutlet weak var picksClosedView: UIView!
     @IBOutlet weak var makeAPickView: UIView!
+    @IBOutlet weak var scoreView: UIView!
     
     //Outlets for Make a Pick elements
     @IBOutlet weak var cardView: UIView!
@@ -59,6 +60,10 @@ class PicksViewController: UIViewController {
     @IBOutlet weak var candidatePerformanceArrow: UIImageView!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
+    //Outlet for candidate table view
+    @IBOutlet weak var candidateTableView: UITableView!
+    
+    //If a user swiped up or picked "Up"
     func didChooseUp() {
         if pickIndex < 5 {
         picks[pickIndex] = true
@@ -70,6 +75,7 @@ class PicksViewController: UIViewController {
         }
     }
     
+    //If a user swiped down or picked "Down"
     func didChooseDown() {
         if pickIndex < 5 {
         picks[pickIndex] = false
@@ -81,6 +87,7 @@ class PicksViewController: UIViewController {
         }
     }
     
+    //After the user makes their pick, move to the next one
     func nextPick() {
         //Move to the next candidate
         pickIndex = pickIndex + 1
@@ -88,6 +95,7 @@ class PicksViewController: UIViewController {
         if pickIndex > 4 {
             //Move on to the submit screen
             print(picks)
+            picksCompleted()
         } else {
         //Load up the next candidate image, name, and performance
         candidateImage.image = UIImage(named: images[pickIndex])
@@ -112,7 +120,9 @@ class PicksViewController: UIViewController {
         }
     }
     
+    //Once the user is finished making picks
     func picksCompleted() {
+        //Set the date and picks and synchronize
         pickDate = NSDate()
         defaults.setValue(pickDate, forKey: "pickDate")
         defaults.setValue(berniePick, forKey: "berniePick")
@@ -122,17 +132,50 @@ class PicksViewController: UIViewController {
         defaults.setValue(kasichPick, forKey: "johnPick")
         defaults.synchronize()
         
+        //Reload the picks closed view table
+        candidateTableView.reloadData()
+        
+        //Hide make pick and score views and show picks closed
         makeAPickView.alpha = 0
+        scoreView.alpha = 0
         picksClosedView.alpha = 1
     }
     
-    func calculateScores() {
-        
+    //Calculate the score of each pick
+    func calculateScore(pick: Bool, performance: Double) -> Int {
+        if performance > 0 && pick == true {
+            return 1
+        } else if performance < 0 && pick == false {
+            return 1
+        } else {
+            return 0
+        }
     }
     
+    //Grab the user picks and calculate the total score
+    func calculateScores() {
+        berniePick = defaults.boolForKey("berniePick")
+        hillaryPick = defaults.boolForKey("hillaryPick")
+        cruzPick = defaults.boolForKey("cruzPick")
+        trumpPick = defaults.boolForKey("trumpPick")
+        kasichPick = defaults.boolForKey("kasichPick")
+        
+        var score = calculateScore(berniePick, performance: berniePerformance) + calculateScore(hillaryPick, performance: hillaryPerformance) + calculateScore(cruzPick, performance: cruzPerformance) + calculateScore(trumpPick, performance: trumpPerformance) + calculateScore(kasichPick, performance: kasichPerformance)
+        
+        print(score)
+    }
+    
+    //Reset the picks when a new game starts
     func resetPicks() {
         pickIndex = 0
         
+        //Hide other views
+        scoreView.alpha = 0
+        picksClosedView.alpha = 0
+        
+        //Reset make a pick view and show it
+        cardView.center = cardViewOriginalCenter
+        makeAPickView.alpha = 1
     }
     
     @IBAction func didPanCard(sender: UIPanGestureRecognizer) {
@@ -169,15 +212,39 @@ class PicksViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         //Did not make picks
         //Show option to make picks
+        if pickIndex == 0 {
+            
+            //Show make a pick view
+            makeAPickView.alpha = 1
+            scoreView.alpha = 0
+            picksClosedView.alpha = 0
+            
+        }
         
         //Made picks, no updated picks available
         //Show pick summary
-        if pickIndex > 4 {
+        if pickIndex > 4 && areNewResults == false {
+            
+            //Update the table
+            candidateTableView.reloadData()
+            //Show picks closed view
+            picksClosedView.alpha = 1
+            makeAPickView.alpha = 0
+            scoreView.alpha = 0
             
         }
         
         //Made picks, updated picks available
         //Show score screen
+        if pickIndex > 4 && areNewResults == true {
+            calculateScores()
+            
+            //Show score view
+            scoreView.alpha = 1
+            makeAPickView.alpha = 0
+            picksClosedView.alpha = 0
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -186,7 +253,7 @@ class PicksViewController: UIViewController {
         //Fake pickDate
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        pickDate = dateFormatter.dateFromString("2015-03-16")
+        pickDate = dateFormatter.dateFromString("2015-04-16")
         print("pickDate: \(pickDate)")
         
         //pickDate = NSDate()
@@ -242,6 +309,10 @@ class PicksViewController: UIViewController {
             delegate:nil,
             delegateQueue:NSOperationQueue.mainQueue()
         )
+        
+        candidateTableView.dataSource = self
+        candidateTableView.delegate = self
+        candidateTableView.rowHeight = 100
         
         //AFNetworking Handling
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
@@ -326,6 +397,30 @@ class PicksViewController: UIViewController {
         });
         task.resume()
     }
+    
+    func tableView(candidateTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = candidateTableView.dequeueReusableCellWithIdentifier("candidateCell", forIndexPath: indexPath) as! CandidateTableViewCell
+        let portrait = UIImage(named: images[indexPath.row])
+        let name = names[indexPath.row]
+        var arrow: UIImage
+        if picks[indexPath.row] == true {
+            arrow = UIImage(named: "ic_arrow_upward")!
+            cell.candidatePick.image = arrow
+        } else if picks[indexPath.row] == false {
+            arrow = UIImage(named: "ic_arrow_downward")!
+            cell.candidatePick.image = arrow
+        }
+        
+        cell.candidatePortrait.image = portrait
+        cell.candidateName.text = name
+        
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

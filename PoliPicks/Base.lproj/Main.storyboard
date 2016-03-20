@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="l8W-OE-0hy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="1O0-Vg-iAJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
@@ -288,20 +288,43 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Picks are closed for today!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gM3-sO-Ytx">
-                                        <rect key="frame" x="59" y="134" width="202" height="21"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="63W-Tz-dZq">
+                                        <rect key="frame" x="0.0" y="68" width="320" height="500"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New game starts in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="P5t-8b-y6E">
-                                        <rect key="frame" x="60" y="256" width="201" height="29"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <color key="textColor" red="0.81960784313725488" green="0.011764705882352941" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="candidateCell" id="f6I-Rs-pT0" customClass="CandidateTableViewCell" customModule="PoliPicks" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="92" width="320" height="100"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="f6I-Rs-pT0" id="kD7-97-QSb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZJQ-w3-njg">
+                                                            <rect key="frame" x="20" y="10" width="80" height="80"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="4mD-Yi-fsX">
+                                                            <rect key="frame" x="252" y="20" width="60" height="60"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PpY-4n-wRE">
+                                                            <rect key="frame" x="108" y="27" width="140" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="candidateName" destination="PpY-4n-wRE" id="nwd-ho-h5O"/>
+                                                    <outlet property="candidatePick" destination="4mD-Yi-fsX" id="81V-kg-uaH"/>
+                                                    <outlet property="candidatePortrait" destination="ZJQ-w3-njg" id="uEv-Kq-WCy"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -375,10 +398,12 @@
                         <outlet property="candidateName" destination="0Y2-EJ-03j" id="gXy-in-9l9"/>
                         <outlet property="candidatePerformance" destination="N2b-rK-f7U" id="Y8a-e5-bkr"/>
                         <outlet property="candidatePerformanceArrow" destination="scd-4g-HF1" id="QI8-fV-Kwp"/>
+                        <outlet property="candidateTableView" destination="63W-Tz-dZq" id="klY-v8-GQe"/>
                         <outlet property="cardView" destination="AyW-W8-sfm" id="3Ek-Mq-X8X"/>
                         <outlet property="cardViewPanGestureRecognizer" destination="gME-zz-Hpm" id="UOh-eb-Cqq"/>
                         <outlet property="makeAPickView" destination="I2J-i4-Cmf" id="0oh-Ja-FQz"/>
                         <outlet property="picksClosedView" destination="Pbe-ox-hmT" id="hKQ-tH-KjD"/>
+                        <outlet property="scoreView" destination="xWe-Qg-Uoy" id="qPN-TB-4tp"/>
                         <segue destination="QJe-RF-bim" kind="push" identifier="confirmPickSegue" id="kN5-A6-5ae"/>
                     </connections>
                 </viewController>
