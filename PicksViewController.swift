@@ -97,17 +97,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             print(picks)
             picksCompleted()
         } else {
-        //Load up the next candidate image, name, and performance
-        candidateImage.image = UIImage(named: images[pickIndex])
-        candidateName.text = names[pickIndex]
-        candidatePerformance.text = String(performance[pickIndex])
-        print(performance[pickIndex])
-        //Set pick arrow direction
-        if performance[pickIndex] > 0 {
-            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_up")
-        } else if performance[pickIndex] < 0 {
-            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_down")
-        }
+        //Set up next candidate card
+        setUpCandidateCard()
         
         //Prep for animation in of the next card
         cardView.center.x = cardViewOriginalCenter.x + 500
@@ -176,6 +167,19 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Reset make a pick view and show it
         cardView.center = cardViewOriginalCenter
         makeAPickView.alpha = 1
+    }
+    
+    func setUpCandidateCard() {
+        //Load up the candidate image, name, and performance
+        candidateImage.image = UIImage(named: images[pickIndex])
+        candidateName.text = names[pickIndex]
+        candidatePerformance.text = String(performance[pickIndex])
+        //Set pick arrow direction
+        if performance[pickIndex] > 0 {
+            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_up")
+        } else if performance[pickIndex] < 0 {
+            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_down")
+        }
     }
     
     @IBAction func didPanCard(sender: UIPanGestureRecognizer) {
@@ -260,29 +264,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         areNewResults = false
         
-        //Stored value for current poll's scores
-        var bernieCurrent: Int!
-        var hillaryCurrent: Int!
-        var cruzCurrent: Double!
-        var trumpCurrent: Double!
-        var kasichCurrent: Double!
-        
-        //Stored value for last poll's scores
-        var berniePast: Int!
-        var hillaryPast: Int!
-        var cruzPast: Double!
-        var trumpPast: Double!
-        var kasichPast: Double!
-        
         //cardView.layer.shadowOffset = CGSizeMake(5,1)
         cardView.layer.shadowRadius = 1
         cardView.layer.shadowOpacity = 1
         cardViewOriginalCenter = cardView.center
-        
-        //Setting the first candidate (Bernie)'s assets
-        pickIndex = 0
-        candidateImage.image = UIImage(named: images[pickIndex])
-        candidateName.text = names[pickIndex]
         
         //Setting defaults to up (not sure why this is needed for the app not to crash
         berniePick = true
@@ -300,8 +285,36 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cruzPerformance = 0
         trumpPerformance = 0
         kasichPerformance = 0
+        updateRepublicans()
+        updateDemocrats()
         
-        //AFNetworking Setup
+        //Set up performance array
+        performance = [berniePerformance, hillaryPerformance, cruzPerformance, trumpPerformance, kasichPerformance]
+        
+        print("performance after load\(self.performance)")
+        
+        //Setting the first candidate (Bernie)'s assets
+        pickIndex = 0
+        setUpCandidateCard()
+        
+        //Picks summary setup
+        candidateTableView.dataSource = self
+        candidateTableView.delegate = self
+        candidateTableView.rowHeight = 100
+    }
+    
+    func updateRepublicans() {
+        //Stored value for current poll's scores
+        var cruzCurrent: Double!
+        var trumpCurrent: Double!
+        var kasichCurrent: Double!
+        
+        //Stored value for last poll's scores
+        var cruzPast: Double!
+        var trumpPast: Double!
+        var kasichPast: Double!
+        
+        //AFNetworking setup
         let url = NSURL(string:"http://elections.huffingtonpost.com/pollster/api/charts/2016-national-gop-primary.json")
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession(
@@ -310,11 +323,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             delegateQueue:NSOperationQueue.mainQueue()
         )
         
-        candidateTableView.dataSource = self
-        candidateTableView.delegate = self
-        candidateTableView.rowHeight = 100
-        
-        //AFNetworking Handling
+        //AFNetworking handling
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
             completionHandler: { (data, response, error) in
                 if let data = data {
@@ -337,16 +346,17 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store estimate in blob
                             if let jsonResult = responseDictionary as? [String: AnyObject] {
                                 
-                            //Clean out the nulls from it
-                            let clean:[String: AnyObject] = Dictionary(
-                                jsonResult.flatMap(){
-                                    // convert NSNull to unset optional
-                                    // flatmap filters unset optionals
-                                    return ($0.1 is NSNull) ? .None : $0
-                                })
+                                //Clean out the nulls from it
+                                let clean:[String: AnyObject] = Dictionary(
+                                    jsonResult.flatMap(){
+                                        // convert NSNull to unset optional
+                                        // flatmap filters unset optionals
+                                        return ($0.1 is NSNull) ? .None : $0
+                                    })
                                 //Store estimates by date in responseData
                                 self.responseData = clean["estimates_by_date"] as! [NSDictionary]
                             }
+                            print("responseData:\(self.responseData)")
                             //Pull out the latest set of data
                             var latestDataRaw = self.responseData[0]
                             //Parse out the scores
@@ -387,16 +397,112 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             self.kasichPerformance = self.kasichPerformance.roundToPlaces(1)
                             print("kasichCurrent:\(kasichCurrent)")
                             print("kasichPast:\(kasichPast)")
-                            print("kasichPerformance:\(self.trumpPerformance)")
+                            print("kasichPerformance:\(self.kasichPerformance)")
                             
                             //Populating performance
-                            self.performance = [self.berniePerformance, self.hillaryPerformance, self.cruzPerformance, self.trumpPerformance, self.kasichPerformance]
-                            print("performance after load\(self.performance)")
+                            self.performance[2] = self.cruzPerformance
+                            self.performance[3] = self.trumpPerformance
+                            self.performance[4] = self.kasichPerformance
+                            //print("performance after Republican load\(self.performance)")
                     }
                 }
         });
         task.resume()
     }
+    
+    func updateDemocrats() {
+        //Stored value for current poll's scores
+        var bernieCurrent: Double!
+        var hillaryCurrent: Double!
+        
+        //Stored value for last poll's scores
+        var berniePast: Double!
+        var hillaryPast: Double!
+        
+        //AFNetworking setup
+        let url = NSURL(string:"http://elections.huffingtonpost.com/pollster/api/charts/2016-national-democratic-primary.json")
+        let request = NSURLRequest(URL: url!)
+        let session = NSURLSession(
+            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+            delegate:nil,
+            delegateQueue:NSOperationQueue.mainQueue()
+        )
+        
+        //AFNetworking handling
+        let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
+            completionHandler: { (data, response, error) in
+                if let data = data {
+                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
+                        data, options:[]) as? NSDictionary {
+                            
+                            //Pull out Last Updated
+                            var lastUpdated = responseDictionary.valueForKey("last_updated")
+                            print(lastUpdated!)
+                            
+                            //Reformat Last Updated
+                            let dateFormatter = NSDateFormatter()
+                            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                            let date = dateFormatter.dateFromString(String(lastUpdated!))
+                            if (date!.isGreaterThanDate(self.pickDate)) {
+                                self.areNewResults = true
+                            }
+                            print(self.areNewResults)
+                            
+                            //Store estimate in blob
+                            if let jsonResult = responseDictionary as? [String: AnyObject] {
+                                
+                                //Clean out the nulls from it
+                                let clean:[String: AnyObject] = Dictionary(
+                                    jsonResult.flatMap(){
+                                        // convert NSNull to unset optional
+                                        // flatmap filters unset optionals
+                                        return ($0.1 is NSNull) ? .None : $0
+                                    })
+                                //Store estimates by date in responseData
+                                self.responseData = clean["estimates_by_date"] as! [NSDictionary]
+                            }
+                            //Pull out the latest set of data
+                            var latestDataRaw = self.responseData[0]
+                            //Parse out the scores
+                            var latestData = latestDataRaw.valueForKeyPath("estimates.value")
+                            
+                            //Pull out the second most recent set of data
+                            var pastDataRaw = self.responseData[1]
+                            //Parse out the scores
+                            var pastData = pastDataRaw.valueForKeyPath("estimates.value")
+                            
+                            //Store the scores in past and current candidate variables
+                            
+                            //Bernie
+                            bernieCurrent = latestData![3] as! Double
+                            berniePast = pastData![3] as! Double
+                            self.trumpPerformance = bernieCurrent - berniePast
+                            //Round to one decimal place
+                            self.berniePerformance = self.berniePerformance.roundToPlaces(1)
+                            print("bernieCurrent:\(bernieCurrent)")
+                            print("berniePast:\(berniePast)")
+                            print("berniePerformance:\(self.trumpPerformance)")
+                            
+                            //Hillary
+                            hillaryCurrent = latestData![2] as! Double
+                            hillaryPast = pastData![2] as! Double
+                            self.hillaryPerformance = hillaryCurrent - hillaryPast
+                            //Round to one decimal place
+                            self.hillaryPerformance = self.hillaryPerformance.roundToPlaces(1)
+                            print("hillaryCurrent:\(hillaryCurrent)")
+                            print("hillaryPast:\(hillaryPast)")
+                            print("hillaryPerformance:\(self.hillaryPerformance)")
+                            
+                            //Populating performance
+                            self.performance[0] = self.berniePerformance
+                            self.performance[1] = self.hillaryPerformance
+                            //print("performance after Republican load\(self.performance)")
+                    }
+                }
+        });
+        task.resume()
+    }
+    
     
     func tableView(candidateTableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = candidateTableView.dequeueReusableCellWithIdentifier("candidateCell", forIndexPath: indexPath) as! CandidateTableViewCell
