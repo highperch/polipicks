@@ -484,8 +484,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("berniePerformance:\(self.trumpPerformance)")
                             
                             //Hillary
-                            hillaryCurrent = latestData![2] as! Double
-                            hillaryPast = pastData![2] as! Double
+                            hillaryCurrent = latestData![3] as! Double
+                            hillaryPast = pastData![3] as! Double
                             self.hillaryPerformance = hillaryCurrent - hillaryPast
                             //Round to one decimal place
                             self.hillaryPerformance = self.hillaryPerformance.roundToPlaces(1)
