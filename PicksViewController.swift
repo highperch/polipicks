@@ -153,7 +153,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         var score = calculateScore(berniePick, performance: berniePerformance) + calculateScore(hillaryPick, performance: hillaryPerformance) + calculateScore(cruzPick, performance: cruzPerformance) + calculateScore(trumpPick, performance: trumpPerformance) + calculateScore(kasichPick, performance: kasichPerformance)
         
-        print(score)
+        print("score:\(score)")
     }
     
     //Reset the picks when a new game starts
@@ -474,14 +474,14 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store the scores in past and current candidate variables
                             
                             //Bernie
-                            bernieCurrent = latestData![3] as! Double
-                            berniePast = pastData![3] as! Double
-                            self.trumpPerformance = bernieCurrent - berniePast
+                            bernieCurrent = latestData![2] as! Double
+                            berniePast = pastData![2] as! Double
+                            self.berniePerformance = bernieCurrent - berniePast
                             //Round to one decimal place
                             self.berniePerformance = self.berniePerformance.roundToPlaces(1)
                             print("bernieCurrent:\(bernieCurrent)")
                             print("berniePast:\(berniePast)")
-                            print("berniePerformance:\(self.trumpPerformance)")
+                            print("berniePerformance:\(self.berniePerformance)")
                             
                             //Hillary
                             hillaryCurrent = latestData![3] as! Double
