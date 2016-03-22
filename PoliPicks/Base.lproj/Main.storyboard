@@ -321,14 +321,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5wm-zG-fEa">
-                                        <rect key="frame" x="200" y="404" width="71" height="24"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Down" image="ic_arrow_downward"/>
-                                        <connections>
-                                            <action selector="didPressDown:" destination="l8W-OE-0hy" eventType="touchUpInside" id="It2-Co-5aZ"/>
-                                        </connections>
-                                    </button>
                                     <view contentMode="scaleToFill" id="AyW-W8-sfm">
                                         <rect key="frame" x="20" y="83" width="280" height="280"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -363,11 +355,19 @@
                                         </connections>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="HQ7-16-v3S">
-                                        <rect key="frame" x="63" y="365" width="80" height="80"/>
+                                        <rect key="frame" x="61" y="365" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Up" image="up"/>
                                         <connections>
                                             <action selector="didPressUp:" destination="l8W-OE-0hy" eventType="touchUpInside" id="2Db-0s-Mn5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5wm-zG-fEa">
+                                        <rect key="frame" x="178" y="365" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Down" image="down"/>
+                                        <connections>
+                                            <action selector="didPressDown:" destination="l8W-OE-0hy" eventType="touchUpInside" id="It2-Co-5aZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -875,9 +875,9 @@
     <resources>
         <image name="bernie-sanders" width="512" height="512"/>
         <image name="donald-trump" width="512" height="512"/>
+        <image name="down" width="84" height="84"/>
         <image name="hillary-clinton" width="512" height="512"/>
         <image name="ic_account_circle" width="24" height="24"/>
-        <image name="ic_arrow_downward" width="24" height="24"/>
         <image name="ic_swap_vertical_circle" width="24" height="24"/>
         <image name="ic_trending_up" width="24" height="24"/>
         <image name="john-kasich" width="512" height="512"/>
