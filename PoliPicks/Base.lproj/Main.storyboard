@@ -252,7 +252,7 @@
                     <connections>
                         <segue destination="Y6i-8R-gtq" kind="relationship" relationship="viewControllers" id="GoW-OM-tkJ"/>
                         <segue destination="QKP-dU-MNI" kind="relationship" relationship="viewControllers" id="OxV-gG-K7s"/>
-                        <segue destination="p6j-xZ-jSn" kind="relationship" relationship="viewControllers" id="pvW-BS-4SO"/>
+                        <segue destination="PAS-5v-wXu" kind="relationship" relationship="viewControllers" id="pvW-BS-4SO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LPT-vE-jvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -537,13 +537,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <items>
-                                            <navigationItem title="Profile" id="hg1-VP-bre">
-                                                <barButtonItem key="rightBarButtonItem" title="Settings" id="s6j-LS-aWJ">
-                                                    <connections>
-                                                        <action selector="didTapSettings:" destination="p6j-xZ-jSn" id="4UW-dP-peK"/>
-                                                    </connections>
-                                                </barButtonItem>
-                                            </navigationItem>
+                                            <navigationItem id="hg1-VP-bre"/>
                                         </items>
                                     </navigationBar>
                                     <view contentMode="scaleToFill" id="ry0-mt-UwK" userLabel="Profile Content View">
@@ -622,21 +616,27 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="You" image="ic_account_circle" id="WMo-iw-P24"/>
+                    <navigationItem key="navigationItem" title="You" id="AIt-Kw-j4d">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="tgi-3k-o0X">
+                            <connections>
+                                <action selector="didTapSettings:" destination="p6j-xZ-jSn" id="DCh-vB-tkR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bestDayLabel" destination="Llr-NF-g09" id="oKR-rC-NNB"/>
                         <outlet property="pointsLabel" destination="NlF-Cb-UFW" id="RKU-JQ-UL3"/>
                         <outlet property="profileView" destination="FXk-br-YVM" id="Cp5-D9-qg6"/>
                         <outlet property="rankLabel" destination="jyp-nw-4Jg" id="ocK-nV-Ptn"/>
                         <outlet property="streakLabel" destination="Q2O-k4-OHH" id="T3X-8f-E06"/>
-                        <segue destination="TmZ-5s-BTM" kind="modal" identifier="settingsSegue" id="FcQ-kj-6wf"/>
+                        <segue destination="IEV-SM-c94" kind="modal" identifier="settingsSegue" id="FcQ-kj-6wf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMG-Cp-vEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="1074"/>
+            <point key="canvasLocation" x="722" y="1748"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="M7P-fM-2NB">
             <objects>
                 <viewController modalPresentationStyle="overCurrentContext" id="TmZ-5s-BTM" customClass="SettingsViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
@@ -750,7 +750,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="YYI-Cl-gTr">
-                                <rect key="frame" x="0.0" y="484" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="438" width="320" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SNO-W9-qTy">
@@ -771,6 +771,13 @@
                             <outletCollection property="gestureRecognizers" destination="pPt-Ev-ALQ" appends="YES" id="Dmm-Dt-TAE"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="50V-zY-g2B">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="VOW-8P-R9D">
+                            <connections>
+                                <action selector="didTapDone:" destination="TmZ-5s-BTM" id="MUY-Ov-pNs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="screennameTextField" destination="TbI-Lz-2LM" id="GG1-7o-gwb"/>
                         <outlet property="stateTextField" destination="TUc-im-5CK" id="F4Y-d1-3df"/>
@@ -783,7 +790,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1621" y="1074"/>
+            <point key="canvasLocation" x="1660" y="1748"/>
         </scene>
         <!--Pick-->
         <scene sceneID="xbh-pX-RY8">
@@ -822,6 +829,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZ2-DD-T1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="299" y="1074"/>
+        </scene>
+        <!--You-->
+        <scene sceneID="XGH-zn-Onu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="PAS-5v-wXu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="You" image="ic_account_circle" id="WMo-iw-P24"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Veg-qk-cHB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="p6j-xZ-jSn" kind="relationship" relationship="rootViewController" id="esT-Kd-PwL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bvS-fK-Jfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="722" y="1074"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9FI-UB-mWP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IEV-SM-c94" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lbz-az-7hF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="TmZ-5s-BTM" kind="relationship" relationship="rootViewController" id="h2W-ir-MaH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhl-xI-40V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1128" y="1748"/>
         </scene>
     </scenes>
     <resources>
