@@ -251,7 +251,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Y6i-8R-gtq" kind="relationship" relationship="viewControllers" id="GoW-OM-tkJ"/>
-                        <segue destination="3Q2-z2-Scs" kind="relationship" relationship="viewControllers" id="OxV-gG-K7s"/>
+                        <segue destination="QKP-dU-MNI" kind="relationship" relationship="viewControllers" id="OxV-gG-K7s"/>
                         <segue destination="p6j-xZ-jSn" kind="relationship" relationship="viewControllers" id="pvW-BS-4SO"/>
                     </connections>
                 </tabBarController>
@@ -280,7 +280,7 @@
                                                 <rect key="frame" x="0.0" y="92" width="320" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="f6I-Rs-pT0" id="kD7-97-QSb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZJQ-w3-njg">
@@ -446,7 +446,7 @@
             </objects>
             <point key="canvasLocation" x="-57" y="1074"/>
         </scene>
-        <!--Leaders-->
+        <!--Leaderboard-->
         <scene sceneID="qoe-Yt-eyh">
             <objects>
                 <viewController storyboardIdentifier="LeaderboardViewController" id="3Q2-z2-Scs" customClass="LeaderboardViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
@@ -462,7 +462,7 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="IeU-PU-dAd">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <rect key="frame" x="0.0" y="68" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -512,14 +512,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Leaders" image="ic_trending_up" id="AAn-LH-rFI"/>
+                    <navigationItem key="navigationItem" title="Leaderboard" id="Sit-ai-ZE7"/>
                     <connections>
                         <outlet property="leaderboardTableView" destination="IeU-PU-dAd" id="PEt-ZQ-nWb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bu3-Tu-JOj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="299" y="1074"/>
+            <point key="canvasLocation" x="299" y="1748"/>
         </scene>
         <!--You-->
         <scene sceneID="Boh-cO-i6W">
@@ -634,7 +634,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMG-Cp-vEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="694" y="1074"/>
+            <point key="canvasLocation" x="1076" y="1074"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="M7P-fM-2NB">
@@ -783,7 +783,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1089" y="1074"/>
+            <point key="canvasLocation" x="1621" y="1074"/>
         </scene>
         <!--Pick-->
         <scene sceneID="xbh-pX-RY8">
@@ -803,6 +803,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qk8-Hd-CxW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-831" y="1074"/>
+        </scene>
+        <!--Leaders-->
+        <scene sceneID="EAC-zJ-Npj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QKP-dU-MNI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Leaders" image="ic_trending_up" id="AAn-LH-rFI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xck-yZ-JFY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3Q2-z2-Scs" kind="relationship" relationship="rootViewController" id="hdF-M9-6fg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oZ2-DD-T1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="299" y="1074"/>
         </scene>
     </scenes>
     <resources>
