@@ -19,7 +19,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bestDayLabel: UILabel!
     @IBOutlet weak var streakLabel: UILabel!
     
-    var defaults = NSUserDefaults()
+    var defaults = NSUserDefaults.standardUserDefaults()
     
     //Settings button
     @IBAction func didTapSettings(sender: UIBarButtonItem) {

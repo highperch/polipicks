@@ -26,7 +26,7 @@ class ScoreViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    var defaults = NSUserDefaults()
+    var defaults = NSUserDefaults.standardUserDefaults()
     
     var sessionScore: Int!
     var totalScore: Int!
@@ -63,6 +63,7 @@ class ScoreViewController: UIViewController {
         //Load total score, default session score to zero
         sessionScore = 0
         totalScore = defaults.integerForKey("totalScore")
+        
         /*
         //Load player guesses
         print("after segue")
@@ -111,6 +112,7 @@ class ScoreViewController: UIViewController {
         
         totalScore = totalScore + sessionScore
         defaults.setInteger(totalScore, forKey: "totalScore")
+        defaults.synchronize()
         
         //Set the score summary and score button
         //Trying to format bolded, seems to be buggy
