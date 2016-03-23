@@ -65,6 +65,7 @@ class ScoreViewController: UIViewController {
         totalScore = defaults.integerForKey("totalScore")
         /*
         //Load player guesses
+        print("after segue")
         cruzGuess = defaults.boolForKey("cruzPick")
         print("cruzPick:\(cruzGuess)")
         print("cruzPerformance:\(cruzPerformance)")
@@ -111,6 +112,7 @@ class ScoreViewController: UIViewController {
         defaults.setInteger(totalScore, forKey: "totalScore")
         
         //Set the score summary and score button
+        //Trying to format bolded, seems to be buggy
         let sessionScoreBolded = NSMutableAttributedString(string: String(sessionScore), attributes: [NSFontAttributeName : UIFont.boldSystemFontOfSize(scoreSummary.font.pointSize)])
         let totalScoreBolded = NSMutableAttributedString(string: String(totalScore))
         totalScoreBolded.addAttribute(NSFontAttributeName, value: UIFont.boldSystemFontOfSize(scoreSummary.font.pointSize), range: (String(totalScore) as NSString).rangeOfString(String(totalScore)))
@@ -120,7 +122,7 @@ class ScoreViewController: UIViewController {
             if totalScore == 0 {
                 scoreSummary.text = "You didn't earn points today, try again!"
             } else {
-                scoreSummary.text = "You didn't earn points today, you have \(totalScoreBolded) so far."
+                scoreSummary.text = "You didn't earn points today, you have \(totalScore) so far."
             }
             
         } else if sessionScore > 0 {
@@ -165,6 +167,10 @@ class ScoreViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destinationViewController = segue.destinationViewController as! PicksViewController
+        destinationViewController.resetPicks()
+    }
 
     /*
     // MARK: - Navigation

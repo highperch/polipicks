@@ -71,9 +71,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //defaults.synchronize()
         print(pickIndex)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
-            self.cardView.center.y = self.cardView.center.y - 400
+            self.cardView.center.y = self.cardView.center.y - 300
+            }, completion: { (Bool) -> Void in
+                self.nextPick()
         })
-        nextPick()
         }
     }
     
@@ -85,9 +86,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //defaults.synchronize()
         print(pickIndex)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
-            self.cardView.center.y = self.cardView.center.y + 400
+            self.cardView.center.y = self.cardView.center.y + 500
+            }, completion: { (Bool) -> Void in
+                self.nextPick()
         })
-        nextPick()
         }
     }
     
@@ -199,12 +201,14 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } else if sender.state == UIGestureRecognizerState.Ended {
             print("ended")
             //If card was moving down past a certain point/speed
-            if velocity > 0 || translation > 100 {
+            if (velocity > 0 && translation > 50) || translation > 100 {
                 //Consider it a choice for down
                 didChooseDown()
-            } else if velocity < 0 || translation < -100 {
+            } else if (velocity < 0 && translation > 50) || translation < -100 {
                 //If the card was moving up past a certain point/speed consider it a choice up
                 didChooseUp()
+            } else {
+                cardView.center.y = cardViewOriginalCenter.y
             }
         }
 
@@ -246,7 +250,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Show score screen
         if pickIndex > 4 && areNewResults == true {
             self.performSegueWithIdentifier("scoreSegue", sender: self)
-            
+            self.resetPicks()
         }
     }
     
@@ -534,11 +538,29 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             destinationViewController.berniePerformance = berniePerformance
             destinationViewController.hillaryPerformance = hillaryPerformance
             
+            berniePick = picks[0]
+            hillaryPick = picks[1]
+            cruzPick = picks[2]
+            trumpPick = picks[3]
+            kasichPick = picks[4]
+            
             destinationViewController.cruzGuess = cruzPick
             destinationViewController.kasichGuess = kasichPick
             destinationViewController.trumpGuess = trumpPick
             destinationViewController.bernieGuess = berniePick
             destinationViewController.hillaryGuess = hillaryPick
+            
+            print("before segue")
+            print("cruzPick:\(cruzPick)")
+            print("cruzPerformance:\(cruzPerformance)")
+            print("kasichPick:\(kasichPick)")
+            print("kasichPerformance:\(kasichPerformance)")
+            print("trumpPick:\(trumpPick)")
+            print("trumpPerformance:\(trumpPerformance)")
+            print("berniePick:\(berniePick)")
+            print("berniePerformance:\(berniePerformance)")
+            print("hillaryPick:\(hillaryPick)")
+            print("hillaryPerformance:\(hillaryPerformance)")
         }
     }
 
