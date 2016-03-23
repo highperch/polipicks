@@ -262,7 +262,7 @@
         <!--Make a Pick-->
         <scene sceneID="Tlx-7m-Pki">
             <objects>
-                <viewController storyboardIdentifier="PicksViewController" id="l8W-OE-0hy" customClass="PicksViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PicksViewController" automaticallyAdjustsScrollViewInsets="NO" id="l8W-OE-0hy" customClass="PicksViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e3g-z2-GJz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,10 +277,10 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" selectionStyle="default" indentationWidth="10" reuseIdentifier="candidateCell" id="f6I-Rs-pT0" customClass="CandidateTableViewCell" customModule="PoliPicks" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="92" width="320" height="100"/>
+                                                <rect key="frame" x="0.0" y="28" width="320" height="100"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" tableViewCell="f6I-Rs-pT0" id="kD7-97-QSb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ZJQ-w3-njg">
@@ -309,11 +309,6 @@
                                         </prototypes>
                                     </tableView>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <view contentMode="scaleToFill" id="xWe-Qg-Uoy" userLabel="Score View">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" id="I2J-i4-Cmf" userLabel="Make a Pick View">
@@ -386,8 +381,8 @@
                         <outlet property="cardViewPanGestureRecognizer" destination="gME-zz-Hpm" id="UOh-eb-Cqq"/>
                         <outlet property="makeAPickView" destination="I2J-i4-Cmf" id="0oh-Ja-FQz"/>
                         <outlet property="picksClosedView" destination="Pbe-ox-hmT" id="hKQ-tH-KjD"/>
-                        <outlet property="scoreView" destination="xWe-Qg-Uoy" id="qPN-TB-4tp"/>
                         <segue destination="QJe-RF-bim" kind="push" identifier="confirmPickSegue" id="kN5-A6-5ae"/>
+                        <segue destination="BaG-i3-92F" kind="modal" identifier="scoreSegue" id="ePf-jt-2aA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGM-mu-dlc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -398,6 +393,110 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-417" y="1074"/>
+        </scene>
+        <!--Score View Controller-->
+        <scene sceneID="0Y4-03-Ozb">
+            <objects>
+                <viewController id="BaG-i3-92F" customClass="ScoreViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KAP-Gv-Fnh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="wY5-M4-evo" userLabel="Score View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="ted-cruz" id="WmE-WJ-ZXL">
+                                        <rect key="frame" x="30" y="200" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="bernie-sanders" id="FRL-0D-9fz">
+                                        <rect key="frame" x="30" y="330" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="john-kasich" id="B1c-Sl-KA8">
+                                        <rect key="frame" x="120" y="200" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="donald-trump" id="5da-3e-fk5">
+                                        <rect key="frame" x="210" y="200" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="hillary-clinton" id="CU2-jW-qbs">
+                                        <rect key="frame" x="120" y="330" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="correct" id="I2h-d6-TiL">
+                                        <rect key="frame" x="61" y="295" width="18" height="14"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="correct" id="v4h-UZ-9c6">
+                                        <rect key="frame" x="151" y="295" width="18" height="14"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="correct" id="JQS-OA-1ka">
+                                        <rect key="frame" x="241" y="295" width="18" height="14"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="correct" id="6Hj-xh-DSp">
+                                        <rect key="frame" x="61" y="425" width="18" height="14"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="correct" id="9VD-FP-5cl">
+                                        <rect key="frame" x="151" y="425" width="18" height="14"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nNP-gF-TM7">
+                                        <rect key="frame" x="60" y="89" width="200" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6Pr-FL-zNv">
+                                        <rect key="frame" x="60" y="478" width="200" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Play Again">
+                                            <color key="titleColor" red="0.1176470588" green="0.70980392160000005" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapPlayAgain:" destination="BaG-i3-92F" eventType="touchUpInside" id="J4N-rj-Bpa"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pS1-o5-BmR">
+                                        <rect key="frame" x="50" y="112" width="220" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="You earned 4 points today, you're up to 36 all time">
+                                                <attributes>
+                                                    <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="bernieScoreImage" destination="6Hj-xh-DSp" id="Txd-eO-Icx"/>
+                        <outlet property="cruzScoreImage" destination="I2h-d6-TiL" id="0af-VN-oFz"/>
+                        <outlet property="hillaryScoreImage" destination="9VD-FP-5cl" id="qLH-n6-1WO"/>
+                        <outlet property="kasichScoreImage" destination="v4h-UZ-9c6" id="tRO-C8-jVa"/>
+                        <outlet property="playAgain" destination="6Pr-FL-zNv" id="THI-MR-kVM"/>
+                        <outlet property="scoreCommentary" destination="nNP-gF-TM7" id="IUo-vD-pwQ"/>
+                        <outlet property="scoreSummary" destination="pS1-o5-BmR" id="5fm-qf-tGV"/>
+                        <outlet property="trumpScoreImage" destination="JQS-OA-1ka" id="GVU-xn-8UQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6h1-VY-Ydg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-417" y="1803"/>
         </scene>
         <!--Confirm Pick-->
         <scene sceneID="dDh-2g-vAP">
@@ -870,11 +969,13 @@
     </scenes>
     <resources>
         <image name="bernie-sanders" width="512" height="512"/>
+        <image name="correct" width="18" height="14"/>
         <image name="donald-trump" width="512" height="512"/>
         <image name="hillary-clinton" width="512" height="512"/>
         <image name="ic_account_circle" width="24" height="24"/>
         <image name="ic_swap_vertical_circle" width="24" height="24"/>
         <image name="ic_trending_up" width="24" height="24"/>
         <image name="john-kasich" width="512" height="512"/>
+        <image name="ted-cruz" width="512" height="512"/>
     </resources>
 </document>

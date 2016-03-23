@@ -27,6 +27,7 @@
 		1E820E821C8E930A005E4678 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E811C8E930A005E4678 /* TabBarViewController.swift */; };
 		1E820E841C90FEDA005E4678 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E820E831C90FEDA005E4678 /* IntroViewController.swift */; };
 		1E8CF7701C9F1925007D3BD5 /* CandidateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E8CF76F1C9F1925007D3BD5 /* CandidateTableViewCell.swift */; };
+		1EB247B21CA1FB290031FF7C /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EB247B11CA1FB290031FF7C /* ScoreViewController.swift */; };
 		1EDCFC8F1C9A513000BE2CFA /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EDCFC8C1C9A513000BE2CFA /* BorderedButton.swift */; };
 		24D2C70F1C9A51CB001EDCE6 /* LoginConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */; };
 		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; };
@@ -80,6 +81,7 @@
 		1E820E811C8E930A005E4678 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarViewController.swift; path = ../TabBarViewController.swift; sourceTree = "<group>"; };
 		1E820E831C90FEDA005E4678 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		1E8CF76F1C9F1925007D3BD5 /* CandidateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CandidateTableViewCell.swift; sourceTree = "<group>"; };
+		1EB247B11CA1FB290031FF7C /* ScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		1EDCFC8C1C9A513000BE2CFA /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		24D2C70E1C9A51CB001EDCE6 /* LoginConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginConfirmViewController.swift; sourceTree = "<group>"; };
 		24DC41E91C98B4D200E64E21 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		1E820E801C8E92D6005E4678 /* Main View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1EB247B11CA1FB290031FF7C /* ScoreViewController.swift */,
 				24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */,
 				1E5BB96A1C97B6DA00AED697 /* PickDetailsViewController.swift */,
 				1E820E831C90FEDA005E4678 /* IntroViewController.swift */,
@@ -434,6 +437,7 @@
 				1E5BB9631C971B2500AED697 /* LeaderboardTableViewCell.swift in Sources */,
 				1E5BB96B1C97B6DA00AED697 /* PickDetailsViewController.swift in Sources */,
 				1E5BB9741C98A12B00AED697 /* TourFinalViewController.swift in Sources */,
+				1EB247B21CA1FB290031FF7C /* ScoreViewController.swift in Sources */,
 				24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */,
 				1E5BB9721C98A12100AED697 /* TourDownViewController.swift in Sources */,
 				1E5BB95B1C95ED7500AED697 /* PicksViewController.swift in Sources */,

@@ -19,11 +19,17 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var bestDayLabel: UILabel!
     @IBOutlet weak var streakLabel: UILabel!
     
+    var defaults = NSUserDefaults()
     
     //Settings button
     @IBAction func didTapSettings(sender: UIBarButtonItem) {
         //Present settings view
         self.performSegueWithIdentifier("settingsSegue", sender: self)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        var points = defaults.integerForKey("totalScore")
+        pointsLabel.text = String(points)
     }
     
     override func viewDidLoad() {

@@ -50,7 +50,6 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Outlets for views (make pick, closed, score)
     @IBOutlet weak var picksClosedView: UIView!
     @IBOutlet weak var makeAPickView: UIView!
-    @IBOutlet weak var scoreView: UIView!
     
     //Outlets for Make a Pick elements
     @IBOutlet weak var cardView: UIView!
@@ -128,10 +127,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //Hide make pick and score views and show picks closed
         makeAPickView.alpha = 0
-        scoreView.alpha = 0
         picksClosedView.alpha = 1
     }
     
+    /*
     //Calculate the score of each pick
     func calculateScore(pick: Bool, performance: Double) -> Int {
         if performance > 0 && pick == true {
@@ -155,13 +154,13 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         print("score:\(score)")
     }
+    */
     
     //Reset the picks when a new game starts
     func resetPicks() {
         pickIndex = 0
         
         //Hide other views
-        scoreView.alpha = 0
         picksClosedView.alpha = 0
         
         //Reset make a pick view and show it
@@ -220,7 +219,6 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             
             //Show make a pick view
             makeAPickView.alpha = 1
-            scoreView.alpha = 0
             picksClosedView.alpha = 0
             
         }
@@ -234,19 +232,13 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //Show picks closed view
             picksClosedView.alpha = 1
             makeAPickView.alpha = 0
-            scoreView.alpha = 0
             
         }
         
         //Made picks, updated picks available
         //Show score screen
         if pickIndex > 4 && areNewResults == true {
-            calculateScores()
-            
-            //Show score view
-            scoreView.alpha = 1
-            makeAPickView.alpha = 0
-            picksClosedView.alpha = 0
+            self.performSegueWithIdentifier("scoreSegue", sender: self)
             
         }
     }
@@ -356,7 +348,6 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                 //Store estimates by date in responseData
                                 self.responseData = clean["estimates_by_date"] as! [NSDictionary]
                             }
-                            print("responseData:\(self.responseData)")
                             //Pull out the latest set of data
                             var latestDataRaw = self.responseData[0]
                             //Parse out the scores
@@ -370,8 +361,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store the scores in past and current candidate variables
                             
                             //Cruz
-                            cruzCurrent = latestData![2] as! Double
-                            cruzPast = pastData![2] as! Double
+                            cruzCurrent = latestData![1] as! Double
+                            cruzPast = pastData![1] as! Double
                             self.cruzPerformance = cruzCurrent - cruzPast
                             //Round to one decimal place
                             self.cruzPerformance = self.cruzPerformance.roundToPlaces(1)
@@ -380,8 +371,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("cruzPerformance:\(self.cruzPerformance)")
                             
                             //Trump
-                            trumpCurrent = latestData![3] as! Double
-                            trumpPast = pastData![3] as! Double
+                            trumpCurrent = latestData![2] as! Double
+                            trumpPast = pastData![2] as! Double
                             self.trumpPerformance = trumpCurrent - trumpPast
                             //Round to one decimal place
                             self.trumpPerformance = self.trumpPerformance.roundToPlaces(1)
@@ -390,8 +381,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("trumpPerformance:\(self.trumpPerformance)")
                             
                             //Kasich
-                            kasichCurrent = latestData![4] as! Double
-                            kasichPast = pastData![4] as! Double
+                            kasichCurrent = latestData![3] as! Double
+                            kasichPast = pastData![3] as! Double
                             self.kasichPerformance = kasichCurrent - kasichPast
                             //Round to one decimal place
                             self.kasichPerformance = self.kasichPerformance.roundToPlaces(1)
@@ -525,6 +516,17 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "scoreSegue" {
+            var destinationViewController = segue.destinationViewController as! ScoreViewController
+            destinationViewController.cruzPerformance = cruzPerformance
+            destinationViewController.kasichPerformance = kasichPerformance
+            destinationViewController.trumpPerformance = trumpPerformance
+            destinationViewController.berniePerformance = berniePerformance
+            destinationViewController.hillaryPerformance = hillaryPerformance
+        }
     }
 
 
