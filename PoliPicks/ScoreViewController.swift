@@ -63,18 +63,24 @@ class ScoreViewController: UIViewController {
         //Load total score, default session score to zero
         sessionScore = 0
         totalScore = defaults.integerForKey("totalScore")
-        
+        /*
         //Load player guesses
         cruzGuess = defaults.boolForKey("cruzPick")
         print("cruzPick:\(cruzGuess)")
+        print("cruzPerformance:\(cruzPerformance)")
         kasichGuess = defaults.boolForKey("kasichPick")
         print("kasichPick:\(kasichGuess)")
+        print("kasichPerformance:\(kasichPerformance)")
         trumpGuess = defaults.boolForKey("trumpPick")
         print("trumpPick:\(trumpGuess)")
+        print("trumpPerformance:\(trumpPerformance)")
         bernieGuess = defaults.boolForKey("berniePick")
         print("berniePick:\(bernieGuess)")
+        print("berniePerformance:\(berniePerformance)")
         hillaryGuess = defaults.boolForKey("hillaryPick")
         print("hillaryPick:\(hillaryGuess)")
+        print("hillaryPerformance:\(hillaryPerformance)")
+        */
         
         //Configure the play again button
         playAgain.layer.cornerRadius = 5

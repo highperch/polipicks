@@ -32,6 +32,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Arrays for picks and images/names/scores
     var images = ["bernie-sanders", "hillary-clinton", "ted-cruz", "donald-trump", "john-kasich"]
     var names = ["Bernie Sanders", "Hillary Clinton", "Ted Cruz", "Donald Trump", "John Kasich"]
+    var defaultPickKeys = ["berniePick", "hillaryPick", "cruzPick", "trumpPick", "kasichPick"]
     var performance: [Double]!
     var picks: [Bool]!
     
@@ -66,6 +67,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func didChooseUp() {
         if pickIndex < 5 {
         picks[pickIndex] = true
+        //defaults.setBool(picks[pickIndex], forKey: defaultPickKeys[pickIndex])
+        //defaults.synchronize()
         print(pickIndex)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.cardView.center.y = self.cardView.center.y - 400
@@ -78,6 +81,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func didChooseDown() {
         if pickIndex < 5 {
         picks[pickIndex] = false
+        //defaults.setBool(picks[pickIndex], forKey: defaultPickKeys[pickIndex])
+        //defaults.synchronize()
         print(pickIndex)
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.cardView.center.y = self.cardView.center.y + 400
@@ -113,15 +118,16 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Once the user is finished making picks
     func picksCompleted() {
         //Set the date and picks and synchronize
+        /*
         pickDate = NSDate()
         defaults.setValue(pickDate, forKey: "pickDate")
         defaults.setValue(berniePick, forKey: "berniePick")
         defaults.setValue(hillaryPick, forKey: "hillaryPick")
         defaults.setValue(cruzPick, forKey: "cruzPick")
-        defaults.setValue(trumpPick, forKey: "donaldPick")
-        defaults.setValue(kasichPick, forKey: "johnPick")
+        defaults.setValue(trumpPick, forKey: "trumpPick")
+        defaults.setValue(kasichPick, forKey: "kasichPick")
         defaults.synchronize()
-        
+        */
         //Reload the picks closed view table
         candidateTableView.reloadData()
         
@@ -175,9 +181,9 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         candidatePerformance.text = String(performance[pickIndex])
         //Set pick arrow direction
         if performance[pickIndex] > 0 {
-            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_up")
+            candidatePerformanceArrow.image = UIImage(named: "mini-win")
         } else if performance[pickIndex] < 0 {
-            candidatePerformanceArrow.image = UIImage(named: "ic_arrow_drop_down")
+            candidatePerformanceArrow.image = UIImage(named: "mini-lose")
         }
     }
     
@@ -216,6 +222,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Did not make picks
         //Show option to make picks
         if pickIndex == 0 {
+            setUpCandidateCard()
             
             //Show make a pick view
             makeAPickView.alpha = 1
@@ -249,7 +256,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Fake pickDate
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        pickDate = dateFormatter.dateFromString("2016-04-16")
+        pickDate = dateFormatter.dateFromString("2015-04-16")
         print("pickDate: \(pickDate)")
         
         //pickDate = NSDate()
@@ -501,10 +508,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let name = names[indexPath.row]
         var arrow: UIImage
         if picks[indexPath.row] == true {
-            arrow = UIImage(named: "ic_arrow_upward")!
+            arrow = UIImage(named: "win")!
             cell.candidatePick.image = arrow
         } else if picks[indexPath.row] == false {
-            arrow = UIImage(named: "ic_arrow_downward")!
+            arrow = UIImage(named: "lose")!
             cell.candidatePick.image = arrow
         }
         
@@ -526,6 +533,12 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             destinationViewController.trumpPerformance = trumpPerformance
             destinationViewController.berniePerformance = berniePerformance
             destinationViewController.hillaryPerformance = hillaryPerformance
+            
+            destinationViewController.cruzGuess = cruzPick
+            destinationViewController.kasichGuess = kasichPick
+            destinationViewController.trumpGuess = trumpPick
+            destinationViewController.bernieGuess = berniePick
+            destinationViewController.hillaryGuess = hillaryPick
         }
     }
 

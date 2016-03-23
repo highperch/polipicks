@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SF-UI-Display-Black</string>
+		<string>SF-UI-Display-Bold</string>
+		<string>SF-UI-Display-Heavy</string>
+		<string>SF-UI-Display-Light</string>
+		<string>SF-UI-Display-Medium</string>
+		<string>SF-UI-Display-Regular</string>
+		<string>SF-UI-Display-Semibold</string>
+		<string>SF-UI-Display-Thin</string>
+		<string>SF-UI-Display-Ultralight</string>
+		<string>SF-UI-Text-Bold</string>
+		<string>SF-UI-Text-BoldItalic</string>
+		<string>SF-UI-Text-Heavy</string>
+		<string>SF-UI-Text-HeavyItalic</string>
+		<string>SF-UI-Text-Light</string>
+		<string>SF-UI-Text-LightItalic</string>
+		<string>SF-UI-Text-Medium</string>
+		<string>SF-UI-Text-MediumItalic</string>
+		<string>SF-UI-Text-Regular</string>
+		<string>SF-UI-Text-RegularItalic</string>
+		<string>SF-UI-Text-Semibold</string>
+		<string>SF-UI-Text-SemiboldItalic</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -43,9 +67,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSAllowsArbitraryLoads</key><true/>
-    </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
