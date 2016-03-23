@@ -8,9 +8,10 @@
 
 import UIKit
 
-class LeaderboardViewController: UIViewController, UITableViewDataSource {
+class LeaderboardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let data = ["washington112, Pennsylvania", "patriot.eagle, Virginia", "make.america.great.again, Ohio", "bald.eagle.six, Florida", "team.america, Colorado"]
+    let scores = ["23", "19", "14", "11", "8"]
     //let data = [["username":"washington112", "location":"Pennsylvania","score": 23], ["username":"patriot.eagle", "location":"Virginia", "score":19], ["username":"make.america.great.again", "location": "Ohio", "score": 14], ["username":"bald.eagle.six", "location": "Florida", "score": 11], ["username":"team.america", "location": "Colorado", "score": 8]]
     
     @IBOutlet weak var leaderboardTableView: UITableView!
@@ -22,7 +23,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource {
         cell.leaderboardTableViewName.text = userData.first
         cell.leaderboardTableViewLocation.text = userData.last
         cell.leaderboardTableViewProfilePicture.image = UIImage(named: "ic_account_circle")
-        //cell.leaderboardTableViewScore.text = userData.valueForKeyPath("score")
+        cell.leaderboardTableViewScore.text = scores[indexPath.row]
         
         return cell
     }
@@ -33,9 +34,10 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        leaderboardTableView.delegate = self
         leaderboardTableView.dataSource = self
-        leaderboardTableView.rowHeight = 44
+        leaderboardTableView.rowHeight = 60
         
         // Do any additional setup after loading the view.
     }
