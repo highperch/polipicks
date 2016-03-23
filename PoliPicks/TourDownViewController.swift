@@ -53,7 +53,7 @@ class TourDownViewController: UIViewController {
                     self.successLabel.alpha = 1
                     }) { (Bool) -> Void in
                         //After a second, move them on
-                        delay(1) { () -> () in
+                        delay(0.75) { () -> () in
                             self.performSegueWithIdentifier("tourFinalSegue", sender: self)
                         }
                 }
