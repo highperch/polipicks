@@ -44,7 +44,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var kasichPerformance: Double!
 
     //NSUserDefaults initialization
-    var defaults = NSUserDefaults()
+    var defaults = NSUserDefaults.standardUserDefaults()
     
     var responseData: [NSDictionary] = []
     
@@ -281,7 +281,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //Made picks, updated picks available
         //Show score screen
-        if pickIndex > 4 && areNewResults == true {
+        if pickIndex > 4 && picksSubmitted == true && areNewResults == true {
             self.performSegueWithIdentifier("scoreSegue", sender: self)
             self.resetPicks()
         }
@@ -300,6 +300,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         areNewResults = false
         picksSubmitted = false
+        
+        //Hide the submit button
+        submitButton.title = nil
+        submitButton.enabled = false
         
         cardView.layer.shadowOffset = CGSizeMake(0,0)
         cardView.layer.shadowColor = UIColor.lightGrayColor().CGColor
@@ -409,8 +413,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store the scores in past and current candidate variables
                             
                             //Cruz
-                            cruzCurrent = latestData![4] as! Double
-                            cruzPast = pastData![4] as! Double
+                            cruzCurrent = latestData![0] as! Double
+                            cruzPast = pastData![0] as! Double
                             self.cruzPerformance = cruzCurrent - cruzPast
                             //Round to one decimal place
                             self.cruzPerformance = self.cruzPerformance.roundToPlaces(1)
@@ -419,8 +423,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("cruzPerformance:\(self.cruzPerformance)")
                             
                             //Trump
-                            trumpCurrent = latestData![1] as! Double
-                            trumpPast = pastData![1] as! Double
+                            trumpCurrent = latestData![3] as! Double
+                            trumpPast = pastData![3] as! Double
                             self.trumpPerformance = trumpCurrent - trumpPast
                             //Round to one decimal place
                             self.trumpPerformance = self.trumpPerformance.roundToPlaces(1)
@@ -429,8 +433,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("trumpPerformance:\(self.trumpPerformance)")
                             
                             //Kasich
-                            kasichCurrent = latestData![3] as! Double
-                            kasichPast = pastData![3] as! Double
+                            kasichCurrent = latestData![1] as! Double
+                            kasichPast = pastData![1] as! Double
                             self.kasichPerformance = kasichCurrent - kasichPast
                             //Round to one decimal place
                             self.kasichPerformance = self.kasichPerformance.roundToPlaces(1)
@@ -593,11 +597,13 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             trumpPick = picks[3]
             kasichPick = picks[4]
             
+            
             destinationViewController.cruzGuess = cruzPick
             destinationViewController.kasichGuess = kasichPick
             destinationViewController.trumpGuess = trumpPick
             destinationViewController.bernieGuess = berniePick
             destinationViewController.hillaryGuess = hillaryPick
+
             
             print("before segue")
             print("cruzPick:\(cruzPick)")
