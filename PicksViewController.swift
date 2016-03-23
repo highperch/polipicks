@@ -180,6 +180,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         pickIndex = 0
         picksSubmitted = false
         candidateTableView.center = candidateTableViewOriginalCenter
+        candidateTableView.alpha = 1
         
         //Hide other views
         picksClosedView.alpha = 0
@@ -250,7 +251,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         //Gray out the buttons
         
-        candidateTableView.reloadData()
+        candidateTableView.alpha = 0.6
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -547,17 +548,21 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if picks[indexPath.row] == true {
             arrow = UIImage(named: "win")!
             cell.candidatePick.image = arrow
+            /*
             if picksSubmitted == true {
                 cell.candidatePick.alpha = 0.6
                 cell.candidatePick.userInteractionEnabled = false
             }
+            */
         } else if picks[indexPath.row] == false {
             arrow = UIImage(named: "lose")!
             cell.candidatePick.image = arrow
+            /*
             if picksSubmitted == true {
                 cell.candidatePick.alpha = 0.6
                 cell.candidatePick.userInteractionEnabled = false
             }
+            */
         }
         
         cell.candidatePortrait.image = portrait
