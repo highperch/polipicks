@@ -138,7 +138,6 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         defaults.synchronize()
         */
         //Reload the picks closed view table
-        picksSubmitted = true
         candidateTableView.reloadData()
         
         //Show submit button
@@ -240,6 +239,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBAction func didPressSubmit(sender: UIBarButtonItem) {
         //Show message
         makeAPickNavigationBar.title = "Picks Submitted"
+        picksSubmitted = true
         
         //Move the table down
         UIView.animateWithDuration(0.3) { () -> Void in
@@ -517,8 +517,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store the scores in past and current candidate variables
                             
                             //Bernie
-                            bernieCurrent = latestData![2] as! Double
-                            berniePast = pastData![2] as! Double
+                            bernieCurrent = latestData![3] as! Double
+                            berniePast = pastData![3] as! Double
                             self.berniePerformance = bernieCurrent - berniePast
                             //Round to one decimal place
                             self.berniePerformance = self.berniePerformance.roundToPlaces(1)
