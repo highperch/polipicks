@@ -60,6 +60,12 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var candidatePerformanceArrow: UIImageView!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
+    //Submit button related changes
+    @IBOutlet weak var submitButton: UIBarButtonItem!
+    @IBOutlet weak var makeAPickNavigationBar: UINavigationItem!
+    var picksSubmitted: Bool!
+    var candidateTableViewOriginalCenter: CGPoint!
+    
     //Outlet for candidate table view
     @IBOutlet weak var candidateTableView: UITableView!
     
@@ -131,7 +137,12 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         defaults.synchronize()
         */
         //Reload the picks closed view table
+        picksSubmitted = true
         candidateTableView.reloadData()
+        
+        //Show submit button
+        submitButton.title = "Submit"
+        submitButton.enabled = true
         
         //Hide make pick and score views and show picks closed
         makeAPickView.alpha = 0
@@ -167,6 +178,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     //Reset the picks when a new game starts
     func resetPicks() {
         pickIndex = 0
+        picksSubmitted = false
+        candidateTableView.center = candidateTableViewOriginalCenter
         
         //Hide other views
         picksClosedView.alpha = 0
@@ -222,6 +235,24 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         didChooseDown()
     }
     
+    @IBAction func didPressSubmit(sender: UIBarButtonItem) {
+        //Show message
+        makeAPickNavigationBar.title = "Picks Submitted"
+        
+        //Move the table down
+        UIView.animateWithDuration(0.3) { () -> Void in
+            self.candidateTableView.center.y += 60
+        }
+        
+        //Hide the submit button
+        submitButton.title = nil
+        submitButton.enabled = false
+        
+        //Gray out the buttons
+        
+        candidateTableView.reloadData()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         //Did not make picks
         //Show option to make picks
@@ -266,11 +297,13 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //pickDate = NSDate()
         
         areNewResults = false
+        picksSubmitted = false
         
         //cardView.layer.shadowOffset = CGSizeMake(5,1)
         cardView.layer.shadowRadius = 1
         cardView.layer.shadowOpacity = 1
         cardViewOriginalCenter = cardView.center
+        candidateTableViewOriginalCenter = candidateTableView.center
         
         //Setting defaults to up (not sure why this is needed for the app not to crash
         berniePick = true
@@ -372,8 +405,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store the scores in past and current candidate variables
                             
                             //Cruz
-                            cruzCurrent = latestData![1] as! Double
-                            cruzPast = pastData![1] as! Double
+                            cruzCurrent = latestData![4] as! Double
+                            cruzPast = pastData![4] as! Double
                             self.cruzPerformance = cruzCurrent - cruzPast
                             //Round to one decimal place
                             self.cruzPerformance = self.cruzPerformance.roundToPlaces(1)
@@ -382,8 +415,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("cruzPerformance:\(self.cruzPerformance)")
                             
                             //Trump
-                            trumpCurrent = latestData![2] as! Double
-                            trumpPast = pastData![2] as! Double
+                            trumpCurrent = latestData![1] as! Double
+                            trumpPast = pastData![1] as! Double
                             self.trumpPerformance = trumpCurrent - trumpPast
                             //Round to one decimal place
                             self.trumpPerformance = self.trumpPerformance.roundToPlaces(1)
@@ -486,8 +519,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("berniePerformance:\(self.berniePerformance)")
                             
                             //Hillary
-                            hillaryCurrent = latestData![3] as! Double
-                            hillaryPast = pastData![3] as! Double
+                            hillaryCurrent = latestData![0] as! Double
+                            hillaryPast = pastData![0] as! Double
                             self.hillaryPerformance = hillaryCurrent - hillaryPast
                             //Round to one decimal place
                             self.hillaryPerformance = self.hillaryPerformance.roundToPlaces(1)
@@ -514,9 +547,17 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if picks[indexPath.row] == true {
             arrow = UIImage(named: "win")!
             cell.candidatePick.image = arrow
+            if picksSubmitted == true {
+                cell.candidatePick.alpha = 0.6
+                cell.candidatePick.userInteractionEnabled = false
+            }
         } else if picks[indexPath.row] == false {
             arrow = UIImage(named: "lose")!
             cell.candidatePick.image = arrow
+            if picksSubmitted == true {
+                cell.candidatePick.alpha = 0.6
+                cell.candidatePick.userInteractionEnabled = false
+            }
         }
         
         cell.candidatePortrait.image = portrait
