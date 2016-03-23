@@ -84,6 +84,7 @@ class ScoreViewController: UIViewController {
         */
         
         //Configure the play again button
+        playAgain.backgroundColor = UIColor.clearColor()
         playAgain.layer.cornerRadius = 5
         playAgain.layer.borderWidth = 1.5
         playAgain.layer.borderColor = UIColor(red: 30, green: 181, blue: 237, alpha: 1).CGColor
