@@ -58,6 +58,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var candidateName: UILabel!
     @IBOutlet weak var candidatePerformance: UILabel!
     @IBOutlet weak var candidatePerformanceArrow: UIImageView!
+    @IBOutlet weak var lastUpdate: UILabel!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
     //Submit button related changes
@@ -300,9 +301,11 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         areNewResults = false
         picksSubmitted = false
         
-        //cardView.layer.shadowOffset = CGSizeMake(5,1)
-        cardView.layer.shadowRadius = 1
-        cardView.layer.shadowOpacity = 1
+        cardView.layer.shadowOffset = CGSizeMake(0,0)
+        cardView.layer.shadowColor = UIColor.lightGrayColor().CGColor
+        cardView.layer.shadowRadius = 7
+        cardView.layer.shadowOpacity = 0.5
+        cardView.layer.cornerRadius = 8.0
         cardViewOriginalCenter = cardView.center
         candidateTableViewOriginalCenter = candidateTableView.center
         
