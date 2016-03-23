@@ -58,6 +58,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var candidateName: UILabel!
     @IBOutlet weak var candidatePerformance: UILabel!
     @IBOutlet weak var candidatePerformanceArrow: UIImageView!
+    @IBOutlet weak var lastUpdate: UILabel!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
     
     //Submit button related changes
