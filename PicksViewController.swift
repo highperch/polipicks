@@ -249,7 +249,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Fake pickDate
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
-        pickDate = dateFormatter.dateFromString("2015-04-16")
+        pickDate = dateFormatter.dateFromString("2016-04-16")
         print("pickDate: \(pickDate)")
         
         //pickDate = NSDate()
