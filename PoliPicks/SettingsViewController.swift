@@ -11,6 +11,9 @@ import UIKit
 class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     //hello
+    var defaults = NSUserDefaults.standardUserDefaults()
+    var selectedScreenName: String!
+    var selectedState: String!
     
     @IBOutlet weak var screennameTextField: UITextField!
     @IBOutlet weak var stateTextField: UITextField!
@@ -32,7 +35,11 @@ class SettingsViewController: UIViewController, UIPickerViewDataSource, UIPicker
     }
     
     @IBAction func didTapDone(sender: UIBarButtonItem) {
-    dismissViewControllerAnimated(true, completion: nil)    }
+    defaults.setValue(selectedScreenName, forKey: "userScreenName")
+    defaults.setValue(selectedState, forKey: "userState")
+    defaults.synchronize()
+    dismissViewControllerAnimated(true, completion: nil)
+    }
 
     @IBAction func tapDismiss(sender: UITapGestureRecognizer) {
         view.endEditing(true)

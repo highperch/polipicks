@@ -181,6 +181,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         picksSubmitted = false
         candidateTableView.center = candidateTableViewOriginalCenter
         candidateTableView.alpha = 1
+        makeAPickNavigationBar.title = "Make a Pick"
         
         //Hide other views
         picksClosedView.alpha = 0
@@ -423,8 +424,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("cruzPerformance:\(self.cruzPerformance)")
                             
                             //Trump
-                            trumpCurrent = latestData![3] as! Double
-                            trumpPast = pastData![3] as! Double
+                            trumpCurrent = latestData![4] as! Double
+                            trumpPast = pastData![4] as! Double
                             self.trumpPerformance = trumpCurrent - trumpPast
                             //Round to one decimal place
                             self.trumpPerformance = self.trumpPerformance.roundToPlaces(1)
