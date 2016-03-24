@@ -35,6 +35,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var defaultPickKeys = ["berniePick", "hillaryPick", "cruzPick", "trumpPick", "kasichPick"]
     var performance: [Double]!
     var picks: [Bool]!
+    var lastUpdatedDate: [NSDate]!
     
     //Stored value for last movement of each candidate
     var berniePerformance: Double!
@@ -60,6 +61,10 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var candidatePerformanceArrow: UIImageView!
     @IBOutlet weak var lastUpdate: UILabel!
     @IBOutlet var cardViewPanGestureRecognizer: UIPanGestureRecognizer!
+    
+    //Variables for Make a Pick elements (specifically last updated date)
+    var republicanLastUpdatedDate: NSDate!
+    var democratLastUpdatedDate: NSDate!
     
     //Submit button related changes
     @IBOutlet weak var submitButton: UIBarButtonItem!
@@ -194,7 +199,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //Load up the candidate image, name, and performance
         candidateImage.image = UIImage(named: images[pickIndex])
         candidateName.text = names[pickIndex]
-        candidatePerformance.text = String(performance[pickIndex])
+        candidatePerformance.text = String(performance[pickIndex]) + "%"
         //Set pick arrow direction
         if performance[pickIndex] > 0 {
             candidatePerformanceArrow.image = UIImage(named: "mini-win")
@@ -285,6 +290,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
             self.performSegueWithIdentifier("scoreSegue", sender: self)
             self.resetPicks()
         }
+        
     }
     
     override func viewDidLoad() {
@@ -345,6 +351,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         candidateTableView.dataSource = self
         candidateTableView.delegate = self
         candidateTableView.rowHeight = 100
+        
+        
     }
     
     func updateRepublicans() {
@@ -371,17 +379,22 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let task : NSURLSessionDataTask = session.dataTaskWithRequest(request,
             completionHandler: { (data, response, error) in
                 if let data = data {
+                    
+                    var lastUpdated: AnyObject!
+                    
                     if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
                         data, options:[]) as? NSDictionary {
                             
                             //Pull out Last Updated
-                            var lastUpdated = responseDictionary.valueForKey("last_updated")
+                            lastUpdated = responseDictionary.valueForKey("last_updated")
                             print(lastUpdated!)
                             
                             //Reformat Last Updated
                             let dateFormatter = NSDateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                             let date = dateFormatter.dateFromString(String(lastUpdated!))
+                            self.republicanLastUpdatedDate = date
+                            print("republican last update \(self.republicanLastUpdatedDate)")
                             if (date!.isGreaterThanDate(self.pickDate)) {
                                 self.areNewResults = true
                             }
@@ -447,6 +460,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             self.performance[3] = self.trumpPerformance
                             self.performance[4] = self.kasichPerformance
                             //print("performance after Republican load\(self.performance)")
+                            
                     }
                 }
         });
@@ -486,6 +500,7 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             let dateFormatter = NSDateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
                             let date = dateFormatter.dateFromString(String(lastUpdated!))
+                            self.democratLastUpdatedDate = date
                             if (date!.isGreaterThanDate(self.pickDate)) {
                                 self.areNewResults = true
                             }
