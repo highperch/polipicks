@@ -47,7 +47,7 @@ class ScoreViewController: UIViewController {
         var candidateCompare: Bool!
         if candidatePerformance > 0 {
             candidateCompare = true
-        } else if candidatePerformance < 0 {
+        } else if candidatePerformance <= 0 {
             candidateCompare = false
         }
         if candidateGuess == candidateCompare {
