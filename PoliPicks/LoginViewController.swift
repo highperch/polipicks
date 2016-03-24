@@ -32,6 +32,15 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func pressSendConfirmationButton(sender: AnyObject) {
+        if phoneNumber.text == "1234567890" {
+            self.performSegueWithIdentifier("loginSegue", sender: self)
+        } else {
+            let alertController = UIAlertController(title: "Invalid Phone Number", message: "Please enter a valid phone number.", preferredStyle: .Alert)
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
         
     }
     
