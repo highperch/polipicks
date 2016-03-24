@@ -1,15 +1,15 @@
 //
-//  LoginConfirmViewController.swift
+//  CreateAccountConfirmViewController.swift
 //  PoliPicks
 //
-//  Created by Grace Qi on 3/16/16.
+//  Created by Grace Qi on 3/23/16.
 //  Copyright © 2016 Justin Peng. All rights reserved.
 //
 
 import UIKit
 
-class LoginConfirmViewController: UIViewController {
-    
+class CreateAccountConfirmViewController: UIViewController {
+
     @IBOutlet weak var confirmationTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,24 +22,12 @@ class LoginConfirmViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func didPressLogin(sender: UIButton) {
-        if confirmationTextField.text == "12345" {
-            self.performSegueWithIdentifier("loginConfirmSegue", sender: self)
-        } else {
-            let alertController = UIAlertController(title: "Invalid Confirmation Number", message: "Please enter a valid confirmation number.", preferredStyle: .Alert)
-            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    @IBAction func didPressDidntGetCode(sender: AnyObject) {
+    @IBAction func didPressDidntGetCode(sender: UIButton) {
         let alertController = UIAlertController(title: "Didn't get code", message: "Code resent. Please check your text message.", preferredStyle: .Alert)
         let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(OKAction)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
 
     /*
     // MARK: - Navigation

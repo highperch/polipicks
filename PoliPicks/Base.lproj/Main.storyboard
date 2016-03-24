@@ -148,7 +148,7 @@
         <!--Create Account View Controller-->
         <scene sceneID="FcI-ze-FOv">
             <objects>
-                <viewController id="5jE-8R-ZVq" userLabel="Create Account View Controller" sceneMemberID="viewController">
+                <viewController id="5jE-8R-ZVq" userLabel="Create Account View Controller" customClass="CreateAccountViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VNJ-GW-fPs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -187,12 +187,12 @@
         <!--Create Account Confirm View Controller-->
         <scene sceneID="Hqu-qJ-X9l">
             <objects>
-                <viewController id="hG1-Yh-Nam" userLabel="Create Account Confirm View Controller" sceneMemberID="viewController">
+                <viewController id="hG1-Yh-Nam" userLabel="Create Account Confirm View Controller" customClass="CreateAccountConfirmViewController" customModule="PoliPicks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c9L-js-6zQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Phone #" minimumFontSize="17" id="WRU-Gu-1aO">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Confirmation #" minimumFontSize="17" id="WRU-Gu-1aO">
                                 <rect key="frame" x="35" y="86" width="250" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -221,10 +221,16 @@
                                 <state key="normal" title="I didn't get a code">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressDidntGetCode:" destination="hG1-Yh-Nam" eventType="touchUpInside" id="w1J-ex-1NE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.2666666667" green="0.71372549019999998" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmationTextField" destination="WRU-Gu-1aO" id="0ye-1L-15j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTJ-FY-dya" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -246,7 +252,6 @@
                                 </state>
                                 <connections>
                                     <action selector="pressSendConfirmationButton:" destination="Svz-bs-lNh" eventType="touchUpInside" id="WCh-BW-z1q"/>
-                                    <segue destination="2cj-KY-onS" kind="modal" id="V3y-K7-qhJ"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Phone #" minimumFontSize="17" id="iVt-Xp-2XM">
@@ -260,6 +265,9 @@
                                         <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="2cj-KY-onS" kind="modal" identifier="loginSegue" id="55x-cO-HtY"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.26666666666666666" green="0.71372549019607845" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
@@ -291,7 +299,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Phone #" minimumFontSize="17" id="aBc-ZQ-1XR">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Confirmation #" minimumFontSize="17" id="aBc-ZQ-1XR">
                                 <rect key="frame" x="35" y="86" width="250" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -310,7 +318,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="z5b-PK-2YS" kind="modal" id="023-80-Rre"/>
+                                    <action selector="didPressLogin:" destination="2cj-KY-onS" eventType="touchUpInside" id="mRf-CP-5ap"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HnY-px-sFg">
@@ -320,10 +328,17 @@
                                 <state key="normal" title="I didn't get a code">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="didPressDidntGetCode:" destination="2cj-KY-onS" eventType="touchUpInside" id="TmQ-j6-HtE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.26666666666666666" green="0.71372549019607845" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmationTextField" destination="aBc-ZQ-1XR" id="Mya-O3-76k"/>
+                        <segue destination="z5b-PK-2YS" kind="modal" identifier="loginConfirmSegue" id="cni-Xs-QfA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Pb-zi-Q5m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
