@@ -437,8 +437,6 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("cruzPerformance:\(self.cruzPerformance)")
                             
                             //Trump
-                            trumpCurrent = latestData![3] as! Double
-                            trumpPast = pastData![3] as! Double
                             trumpCurrent = latestData![4] as! Double
                             trumpPast = pastData![4] as! Double
                             self.trumpPerformance = trumpCurrent - trumpPast
