@@ -437,8 +437,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             print("cruzPerformance:\(self.cruzPerformance)")
                             
                             //Trump
-                            trumpCurrent = latestData![4] as! Double
-                            trumpPast = pastData![4] as! Double
+                            trumpCurrent = latestData![3] as! Double
+                            trumpPast = pastData![3] as! Double
                             self.trumpPerformance = trumpCurrent - trumpPast
                             //Round to one decimal place
                             self.trumpPerformance = self.trumpPerformance.roundToPlaces(1)
@@ -533,8 +533,8 @@ class PicksViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             //Store the scores in past and current candidate variables
                             
                             //Bernie
-                            bernieCurrent = latestData![3] as! Double
-                            berniePast = pastData![3] as! Double
+                            bernieCurrent = latestData![2] as! Double
+                            berniePast = pastData![2] as! Double
                             self.berniePerformance = bernieCurrent - berniePast
                             //Round to one decimal place
                             self.berniePerformance = self.berniePerformance.roundToPlaces(1)
