@@ -54,8 +54,8 @@
 		24DC41EA1C98B4D200E64E21 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41E91C98B4D200E64E21 /* Common.swift */; };
 		24DC41EC1C98B61D00E64E21 /* Intro2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41EB1C98B61D00E64E21 /* Intro2ViewController.swift */; };
 		24DC41EE1C98C16200E64E21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24DC41ED1C98C16200E64E21 /* SettingsViewController.swift */; };
-		24FE25DA1CA3748D003B6F5F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE25D91CA3748D003B6F5F /* CreateAccountViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		24FE25DC1CA37495003B6F5F /* CreateAccountConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE25DB1CA37495003B6F5F /* CreateAccountConfirmViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		24FE25DA1CA3748D003B6F5F /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE25D91CA3748D003B6F5F /* CreateAccountViewController.swift */; };
+		24FE25DC1CA37495003B6F5F /* CreateAccountConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24FE25DB1CA37495003B6F5F /* CreateAccountConfirmViewController.swift */; };
 		E0C0599FD386F14650D9E7DD /* Pods_PoliPicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87BB43BE4D6910ED0FA8D90F /* Pods_PoliPicks.framework */; };
 /* End PBXBuildFile section */
 
@@ -379,7 +379,12 @@
 				TargetAttributes = {
 					1E820E4C1C8E842C005E4678 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = UCST3VC8L4;
+						DevelopmentTeam = 8WY8B7277J;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 					1E820E601C8E842C005E4678 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -692,11 +697,14 @@
 			baseConfigurationReference = E72160889516CE389D5EEFCC /* Pods-PoliPicks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PoliPicks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JP2GQ.PoliPicks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinpeng.polipicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -705,11 +713,14 @@
 			baseConfigurationReference = 13F3876A108A92C3C2D8AA77 /* Pods-PoliPicks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PoliPicks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = JP2GQ.PoliPicks;
+				PRODUCT_BUNDLE_IDENTIFIER = com.justinpeng.polipicks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
